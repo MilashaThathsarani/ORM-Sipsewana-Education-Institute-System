@@ -15,9 +15,9 @@
             <Image url="@assets/graduación.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="336.0" layoutY="52.0" text="Sipsewana Institute " textFill="#860a0a">
+      <Label layoutX="336.0" layoutY="52.0" text="Sipsewana Institute___. " textFill="#860a0a">
          <font>
-            <Font name="Baskerville Old Face" size="48.0" />
+            <Font name="Berlin Sans FB" size="52.0" />
          </font>
       </Label>
       <AnchorPane layoutX="477.0" layoutY="135.0" prefHeight="452.0" prefWidth="393.0" style="-fx-background-color: #dcdde1; -fx-background-radius: 20;">
