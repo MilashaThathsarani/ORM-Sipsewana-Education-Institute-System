@@ -12,6 +12,10 @@ public class DashboardController {
 
     public AnchorPane dashboardContext;
 
+    public void initialize(){
+
+    }
+
     private void loadUi(String filename) throws IOException {
         URL resource = getClass().getResource("../view/" + filename + ".fxml");
         Parent load = FXMLLoader.load(resource);
@@ -19,15 +23,15 @@ public class DashboardController {
         dashboardContext.getChildren().add(load);
     }
 
-   /* public void studentRegistrationOnAction(ActionEvent actionEvent) {
-        loadUi("");
+   public void studentRegistrationOnAction(ActionEvent actionEvent) throws IOException {
+        loadUi("StudentRegistration");
     }
 
-    public void ProgrammsOnAction(ActionEvent actionEvent) {
-        loadUi();
+    public void ProgrammsOnAction(ActionEvent actionEvent) throws IOException {
+        loadUi("Programs");
     }
 
-    public void PaymentOnAction(ActionEvent actionEvent) {
-        loadUi();
-    }*/
+    public void PaymentOnAction(ActionEvent actionEvent) throws IOException {
+        loadUi("Payment");
+    }
 }
