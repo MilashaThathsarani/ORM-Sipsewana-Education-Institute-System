@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -36,10 +35,6 @@
                </font>
             </JFXButton>
          </children></AnchorPane>
-      <Separator prefHeight="5.0" prefWidth="918.0" style="-fx-background-color: #eb4d4b;" />
-      <Separator layoutY="620.0" prefHeight="6.0" prefWidth="918.0" style="-fx-background-color: #eb4d4b;" />
-      <Separator layoutX="-1.0" orientation="VERTICAL" prefHeight="621.0" prefWidth="7.0" style="-fx-background-color: #eb4d4b;" />
-      <Separator layoutX="915.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="626.0" prefWidth="7.0" style="-fx-background-color: #eb4d4b;" />
       <JFXButton buttonType="RAISED" layoutX="60.0" layoutY="548.0" text="Forgotten Password ?" textFill="#860a0a">
          <font>
             <Font name="System Bold" size="18.0" />

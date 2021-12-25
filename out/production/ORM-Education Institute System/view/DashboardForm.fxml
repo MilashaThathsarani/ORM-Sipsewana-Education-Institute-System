@@ -19,17 +19,17 @@
       <JFXButton buttonType="RAISED" layoutX="651.0" layoutY="190.0" prefHeight="260.0" prefWidth="230.0" style="-fx-background-color: #ff7675; -fx-background-radius: 25;" />
       <ImageView fitHeight="150.0" fitWidth="178.0" layoutX="77.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@assets/3.jpg" />
+            <Image url="@assets/Concepto%20de%20idea%20mujer%20joven%20sonriente%20que%20se%20sienta%20con%20té%20y%20usa%20una%20computadora%20portátil%20y%20una%20ilustración%20de%20dibujos%20animados%20de%20pensamiento%20_%20Vector%20Premium.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="178.0" layoutX="384.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@assets/7.jpg" />
+            <Image url="@assets/Toga%20Hat%20On%20Books%20Cartoon%20Illustration%20With%20Certificate,%20Education,%20Certificate,%20Bookmark%20PNG%20and%20Vector%20with%20Transparent%20Background%20for%20Free%20Download.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="178.0" layoutX="691.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@assets/5.png" />
+            <Image url="@assets/Free%20Vector%20_%20Illustration%20of%20people's%20daily%20life.png" />
          </image>
       </ImageView>
       <Label layoutX="64.0" layoutY="403.0" text="Student Registration">
@@ -63,7 +63,7 @@
       </JFXButton>
       <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="44.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@assets/4.jpg" />
+            <Image url="@assets/Download%20Education,%20Studying,%20University,%20Alumni%20-%20Education%20Icon%20Png%20Clipart%20Png%20Download%20-%20PikPng.jpg" />
          </image>
       </ImageView>
    </children>
