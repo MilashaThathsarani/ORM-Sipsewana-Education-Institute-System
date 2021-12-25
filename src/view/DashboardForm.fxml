@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -66,5 +67,8 @@
             <Image url="@assets/4.jpg" />
          </image>
       </ImageView>
+      <Separator layoutY="-1.0" prefHeight="7.0" prefWidth="918.0" style="-fx-background-color: #ff7675;" />
+      <Separator layoutY="615.0" prefHeight="7.0" prefWidth="918.0" style="-fx-background-color: #ff7675;" />
+      <Separator orientation="VERTICAL" prefHeight="618.0" />
    </children>
 </AnchorPane>

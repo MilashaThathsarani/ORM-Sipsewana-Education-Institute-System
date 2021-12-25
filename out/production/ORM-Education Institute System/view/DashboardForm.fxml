@@ -2,21 +2,22 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="618.0" prefWidth="918.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
+<AnchorPane fx:id="dashboardContext" prefHeight="618.0" prefWidth="918.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
    <children>
       <Label layoutX="213.0" layoutY="48.0" text="Sipsewana Institute ___ ." textFill="#860a0a">
          <font>
             <Font name="Berlin Sans FB" size="60.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="37.0" layoutY="190.0" prefHeight="260.0" prefWidth="230.0" style="-fx-background-color: #ff7675; -fx-background-radius: 25;" />
-      <JFXButton buttonType="RAISED" layoutX="344.0" layoutY="190.0" prefHeight="260.0" prefWidth="230.0" style="-fx-background-color: #ff7675; -fx-background-radius: 25;" />
-      <JFXButton buttonType="RAISED" layoutX="651.0" layoutY="190.0" prefHeight="260.0" prefWidth="230.0" style="-fx-background-color: #ff7675; -fx-background-radius: 25;" />
+      <JFXButton buttonType="RAISED" layoutX="37.0" layoutY="190.0" onAction="#studentRegistrationOnAction" prefHeight="260.0" prefWidth="230.0" style="-fx-background-color: #ff7675; -fx-background-radius: 25;" />
+      <JFXButton buttonType="RAISED" layoutX="344.0" layoutY="190.0" onAction="#ProgrammsOnAction" prefHeight="260.0" prefWidth="230.0" style="-fx-background-color: #ff7675; -fx-background-radius: 25;" />
+      <JFXButton buttonType="RAISED" layoutX="651.0" layoutY="190.0" onAction="#PaymentOnAction" prefHeight="260.0" prefWidth="230.0" style="-fx-background-color: #ff7675; -fx-background-radius: 25;" />
       <ImageView fitHeight="150.0" fitWidth="178.0" layoutX="77.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/3.jpg" />
@@ -66,5 +67,7 @@
             <Image url="@assets/4.jpg" />
          </image>
       </ImageView>
+      <Separator layoutY="-1.0" prefHeight="7.0" prefWidth="918.0" style="-fx-background-color: #ff7675;" />
+      <Separator layoutY="615.0" prefHeight="7.0" prefWidth="918.0" style="-fx-background-color: #ff7675;" />
    </children>
 </AnchorPane>
