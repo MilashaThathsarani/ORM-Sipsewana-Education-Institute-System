@@ -1,14 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.StudentRegistrationController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentRegistrationController">
+   <children>
+      <AnchorPane prefHeight="110.0" prefWidth="1600.0" style="-fx-background-color: #ff7675;">
+         <children>
+            <Label layoutX="133.0" layoutY="26.0" text="Sipsewana Institute___. " textFill="#860a0a">
+               <font>
+                  <Font name="Berlin Sans FB" size="52.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="26.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/4.jpg" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <TextField layoutX="73.0" layoutY="174.0" prefHeight="52.0" prefWidth="594.0" promptText="Full Name">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="766.0" layoutY="174.0" prefHeight="52.0" prefWidth="771.0" promptText="Address">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <DatePicker layoutX="73.0" layoutY="297.0" prefHeight="52.0" prefWidth="323.0" promptText="Birth Day" />
+      <TextField layoutX="496.0" layoutY="297.0" prefHeight="52.0" prefWidth="266.0" promptText="Age">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="845.0" layoutY="297.0" prefHeight="52.0" prefWidth="287.0" />
+      <TextField layoutX="1214.0" layoutY="297.0" prefHeight="52.0" prefWidth="323.0" promptText="Phone Number">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="73.0" layoutY="423.0" prefHeight="52.0" prefWidth="935.0" promptText="Education">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <JFXButton layoutX="1067.0" layoutY="434.0" />
+      <JFXButton layoutX="1199.0" layoutY="434.0" />
+      <JFXButton layoutX="1343.0" layoutY="434.0" />
+      <TableView layoutX="73.0" layoutY="544.0" prefHeight="441.0" prefWidth="1468.0">
+        <columns>
+          <TableColumn prefWidth="105.0" text="Student Id" />
+          <TableColumn prefWidth="330.0" text="Full Name" />
+            <TableColumn prefWidth="363.0" text="Address" />
+            <TableColumn prefWidth="146.0" text="BirthDay" />
+            <TableColumn minWidth="3.0" prefWidth="92.0" text="Age" />
+            <TableColumn prefWidth="120.0" text="Gender" />
+            <TableColumn prefWidth="134.0" text="Phone Number" />
+            <TableColumn prefWidth="177.0" text="Education" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>

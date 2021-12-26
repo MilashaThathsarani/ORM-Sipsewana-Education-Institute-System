@@ -3,7 +3,9 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,14 +26,20 @@ public class DashboardController {
     }
 
    public void studentRegistrationOnAction(ActionEvent actionEvent) throws IOException {
-        loadUi("StudentRegistration");
+       Stage window = (Stage) dashboardContext.getScene().getWindow();
+       window.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/StudentRegistration.fxml"))));
+       window.centerOnScreen();
     }
 
     public void ProgrammsOnAction(ActionEvent actionEvent) throws IOException {
-        loadUi("Programs");
+        Stage window = (Stage) dashboardContext.getScene().getWindow();
+        window.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/Programs.fxml"))));
+        window.centerOnScreen();
     }
 
     public void PaymentOnAction(ActionEvent actionEvent) throws IOException {
-        loadUi("Payment");
+        Stage window = (Stage) dashboardContext.getScene().getWindow();
+        window.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/Payment.fxml"))));
+        window.centerOnScreen();
     }
 }
