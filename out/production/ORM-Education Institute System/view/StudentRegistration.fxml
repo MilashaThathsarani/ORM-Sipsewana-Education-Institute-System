@@ -37,56 +37,62 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="869.0" layoutY="32.0" prefHeight="52.0" prefWidth="228.0" />
-            <Label layoutX="1200.0" layoutY="29.0" prefHeight="52.0" prefWidth="228.0" />
+            <Label fx:id="txtDate" layoutX="869.0" layoutY="32.0" prefHeight="52.0" prefWidth="228.0" />
+            <Label fx:id="txtTime" layoutX="1200.0" layoutY="29.0" prefHeight="52.0" prefWidth="228.0" />
+            <JFXButton fx:id="btnBack" layoutX="1477.0" layoutY="40.0" onAction="#backOnAction" prefHeight="36.0" prefWidth="72.0" text="Back" />
          </children></AnchorPane>
-      <TextField layoutX="42.0" layoutY="215.0" prefHeight="52.0" prefWidth="594.0" promptText="Full Name">
+      <TextField fx:id="txtFullName" layoutX="42.0" layoutY="215.0" onAction="#fullNameOnAction" prefHeight="52.0" prefWidth="594.0" promptText="Full Name">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <TextField layoutX="726.0" layoutY="215.0" prefHeight="52.0" prefWidth="816.0" promptText="Address">
+      <TextField fx:id="txtAddress" layoutX="726.0" layoutY="215.0" onAction="#addressOnAction" prefHeight="52.0" prefWidth="816.0" promptText="Address">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <DatePicker layoutX="42.0" layoutY="316.0" prefHeight="52.0" prefWidth="323.0" promptText="Birth Day" />
-      <TextField layoutX="478.0" layoutY="316.0" prefHeight="52.0" prefWidth="266.0" promptText="Age">
+      <DatePicker fx:id="dpBirthday" layoutX="42.0" layoutY="316.0" onAction="#birthdayOnAction" prefHeight="52.0" prefWidth="323.0" promptText="Birth Day" />
+      <TextField fx:id="txtAge" layoutX="478.0" layoutY="316.0" onAction="#ageOnAction" prefHeight="52.0" prefWidth="266.0" promptText="Age">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <TextField layoutX="1214.0" layoutY="316.0" prefHeight="52.0" prefWidth="330.0" promptText="Phone Number">
+      <TextField fx:id="txtPhoneNumber" layoutX="1214.0" layoutY="316.0" onAction="#phoneNumberOnAction" prefHeight="52.0" prefWidth="330.0" promptText="Phone Number">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <TextField layoutX="43.0" layoutY="424.0" prefHeight="52.0" prefWidth="935.0" promptText="Education">
+      <TextField fx:id="txtxEducation" layoutX="43.0" layoutY="424.0" prefHeight="52.0" prefWidth="935.0" promptText="Education">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <JFXButton layoutX="1067.0" layoutY="434.0" />
-      <JFXButton layoutX="1199.0" layoutY="434.0" />
-      <JFXButton layoutX="1343.0" layoutY="434.0" />
-      <TableView layoutX="42.0" layoutY="544.0" prefHeight="441.0" prefWidth="1511.0">
+      <JFXButton fx:id="btnAdd" layoutX="1067.0" layoutY="434.0" onAction="#addOnAction" text="add" />
+      <JFXButton fx:id="btnUpdate" layoutX="1199.0" layoutY="434.0" onAction="#updateOnAction" text="update" />
+      <JFXButton fx:id="btnDelete" layoutX="1343.0" layoutY="434.0" onAction="#deleteOnAction" text="Delete" />
+      <TableView fx:id="tblStudent" layoutX="42.0" layoutY="530.0" prefHeight="455.0" prefWidth="1511.0">
         <columns>
-          <TableColumn prefWidth="105.0" text="Student Id" />
-          <TableColumn prefWidth="330.0" text="Full Name" />
-            <TableColumn prefWidth="363.0" text="Address" />
-            <TableColumn prefWidth="146.0" text="BirthDay" />
-            <TableColumn minWidth="3.0" prefWidth="92.0" text="Age" />
-            <TableColumn prefWidth="120.0" text="Gender" />
-            <TableColumn prefWidth="131.0" text="Phone Number" />
-            <TableColumn prefWidth="223.0" text="Education" />
+          <TableColumn fx:id="colStudentId" prefWidth="105.0" text="Student Id" />
+          <TableColumn fx:id="colFullName" prefWidth="330.0" text="Full Name" />
+            <TableColumn fx:id="colAddress" prefWidth="363.0" text="Address" />
+            <TableColumn fx:id="coBirthday" prefWidth="146.0" text="BirthDay" />
+            <TableColumn fx:id="colAge" minWidth="3.0" prefWidth="92.0" text="Age" />
+            <TableColumn fx:id="colGender" prefWidth="120.0" text="Gender" />
+            <TableColumn fx:id="colPhoneNumber" prefWidth="131.0" text="Phone Number" />
+            <TableColumn fx:id="colEducation" prefWidth="223.0" text="Education" />
         </columns>
       </TableView>
-      <ComboBox layoutX="836.0" layoutY="316.0" prefHeight="52.0" prefWidth="285.0" promptText="Gender" />
+      <ComboBox fx:id="cmbGender" layoutX="836.0" layoutY="316.0" onAction="#genderOnaction" prefHeight="52.0" prefWidth="285.0" promptText="Gender" />
       <Label layoutX="43.0" layoutY="139.0" text="Student Id :">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <JFXTextField layoutX="170.0" layoutY="128.0" prefHeight="52.0" prefWidth="219.0" />
+      <JFXTextField fx:id="txtId" layoutX="170.0" layoutY="128.0" prefHeight="52.0" prefWidth="219.0" />
+      <JFXTextField fx:id="txtSearch" layoutX="1197.0" layoutY="128.0" prefHeight="52.0" prefWidth="266.0" promptText="Search">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXTextField>
    </children>
 </AnchorPane>
