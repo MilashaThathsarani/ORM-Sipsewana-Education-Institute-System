@@ -2,8 +2,16 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import javafx.util.Duration;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.util.Date;
 
 public class StudentRegistrationController {
     public Label txtDate;
@@ -30,6 +38,28 @@ public class StudentRegistrationController {
     public ComboBox cmbGender;
     public JFXTextField txtId;
     public JFXTextField txtSearch;
+
+    public void initialize(){
+
+        loadDateAndTime();
+    }
+
+    private void loadDateAndTime() {
+        Date date = new Date();
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+        txtDate.setText(f.format(date));
+
+        Timeline time = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            LocalTime currentTime = LocalTime.now();
+            txtTime.setText(
+                    currentTime.getHour() + " : " + currentTime.getMinute() + " : " + currentTime.getSecond()
+            );
+        }),
+                new KeyFrame(Duration.seconds(1))
+        );
+        time.setCycleCount(Animation.INDEFINITE);
+        time.play();
+    }
 
     public void backOnAction(ActionEvent actionEvent) {
     }

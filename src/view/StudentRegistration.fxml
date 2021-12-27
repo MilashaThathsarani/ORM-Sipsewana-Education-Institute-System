@@ -27,18 +27,24 @@
                   <Image url="@assets/4.jpg" />
                </image>
             </ImageView>
-            <Label layoutX="800.0" layoutY="40.0" text="Date :">
+            <Label layoutX="800.0" layoutY="33.0" text="Date :">
                <font>
-                  <Font name="System Bold" size="25.0" />
+                  <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Label layoutX="1128.0" layoutY="40.0" text="Time :">
+            <Label layoutX="1142.0" layoutY="36.0" text="Time :">
                <font>
-                  <Font name="System Bold" size="25.0" />
+                  <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Label fx:id="txtDate" layoutX="869.0" layoutY="32.0" prefHeight="52.0" prefWidth="228.0" />
-            <Label fx:id="txtTime" layoutX="1200.0" layoutY="29.0" prefHeight="52.0" prefWidth="228.0" />
+            <Label fx:id="txtDate" alignment="CENTER" layoutX="869.0" layoutY="32.0" prefHeight="52.0" prefWidth="219.0">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font></Label>
+            <Label fx:id="txtTime" alignment="CENTER" layoutX="1215.0" layoutY="32.0" prefHeight="52.0" prefWidth="219.0">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font></Label>
             <JFXButton fx:id="btnBack" layoutX="1477.0" layoutY="40.0" onAction="#backOnAction" prefHeight="36.0" prefWidth="72.0" text="Back" />
          </children></AnchorPane>
       <TextField fx:id="txtFullName" layoutX="42.0" layoutY="215.0" onAction="#fullNameOnAction" prefHeight="52.0" prefWidth="594.0" promptText="Full Name">

@@ -1,10 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PaymentController">
    <children>
-      <AnchorPane prefHeight="110.0" prefWidth="1600.0" style="-fx-background-color: #ff7675;" />
+      <AnchorPane prefHeight="110.0" prefWidth="1600.0" style="-fx-background-color: #ff7675;">
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/4.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="119.0" layoutY="26.0" text="Sipsewana Institute___. " textFill="#860a0a">
+               <font>
+                  <Font name="Berlin Sans FB" size="52.0" />
+               </font>
+            </Label>
+            <Label layoutX="809.0" layoutY="35.0" text="Date :">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="txtDate" layoutX="835.0" layoutY="19.0" prefHeight="52.0" prefWidth="228.0" />
+            <Label layoutX="1121.0" layoutY="37.0" text="Time :">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="txtTime" layoutX="1193.0" layoutY="29.0" prefHeight="52.0" prefWidth="228.0" />
+            <JFXButton fx:id="btnBack" layoutX="1492.0" layoutY="37.0" onAction="#backOnAction" prefHeight="36.0" prefWidth="72.0" text="Back" />
+         </children></AnchorPane>
+      <TextField fx:id="txtFullName1" layoutX="331.0" layoutY="250.0" onAction="#fullNameOnAction" prefHeight="52.0" prefWidth="559.0" promptText="Full Name">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtFullName11" layoutX="944.0" layoutY="250.0" onAction="#fullNameOnAction" prefHeight="52.0" prefWidth="608.0" promptText="Address">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtFullName2" layoutX="718.0" layoutY="325.0" onAction="#fullNameOnAction" prefHeight="52.0" prefWidth="305.0" promptText="Gender">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtFullName3" layoutX="419.0" layoutY="325.0" onAction="#fullNameOnAction" prefHeight="52.0" prefWidth="228.0" promptText="Age">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtFullName4" layoutX="51.0" layoutY="325.0" onAction="#fullNameOnAction" prefHeight="52.0" prefWidth="294.0" promptText="Birth Day">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtFullName5" layoutX="1090.0" layoutY="325.0" onAction="#fullNameOnAction" prefHeight="52.0" prefWidth="360.0" promptText="Phone Number">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtFullName6" layoutX="51.0" layoutY="397.0" onAction="#fullNameOnAction" prefHeight="52.0" prefWidth="619.0" promptText="Education">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtFullName7" layoutX="1258.0" layoutY="510.0" onAction="#fullNameOnAction" prefHeight="52.0" prefWidth="294.0" promptText="Fee (LKR)">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtFullName8" layoutX="907.0" layoutY="510.0" onAction="#fullNameOnAction" prefHeight="52.0" prefWidth="294.0" promptText="Duration">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtFullName9" layoutX="331.0" layoutY="510.0" onAction="#fullNameOnAction" prefHeight="52.0" prefWidth="520.0" promptText="Program Name">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TableView layoutX="51.0" layoutY="594.0" prefHeight="383.0" prefWidth="1127.0">
+        <columns>
+          <TableColumn prefWidth="75.0" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <ComboBox layoutX="51.0" layoutY="250.0" prefHeight="52.0" prefWidth="228.0" promptText="Student Id" />
+      <ComboBox layoutX="51.0" layoutY="510.0" prefHeight="52.0" prefWidth="228.0" promptText="Program Id" />
+      <Label layoutX="55.0" layoutY="207.0" text="Students Details : -">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="470.0" text="Programs Details : -">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="1190.0" layoutY="587.0" prefHeight="383.0" prefWidth="396.0">
+         <children>
+            <JFXButton layoutX="58.0" layoutY="14.0" prefHeight="52.0" prefWidth="305.0" style="-fx-background-color: gray;" text="Add" />
+            <Label layoutX="58.0" layoutY="135.0" text="Total  : -">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="58.0" layoutY="296.0" prefHeight="52.0" prefWidth="305.0" style="-fx-background-color: gray;" text="Add" />
+            <Label layoutX="58.0" layoutY="180.0" prefHeight="58.0" prefWidth="305.0" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="51.0" layoutY="145.0" text="REGISTER NO : -">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <TextField layoutX="237.0" layoutY="135.0" prefHeight="52.0" prefWidth="228.0" />
    </children>
 </AnchorPane>
