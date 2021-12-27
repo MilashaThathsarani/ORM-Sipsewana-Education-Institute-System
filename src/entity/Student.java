@@ -1,9 +1,14 @@
 package entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Student {
+    @Id
     private String studentId;
     private String studentName;
     private String address;
@@ -13,6 +18,7 @@ public class Student {
     private String phoneNumber;
     private String education;
 
+    @ManyToMany
     private List<Program> programList = new ArrayList<>();
 
     public Student() {

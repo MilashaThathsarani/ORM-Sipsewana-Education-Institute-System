@@ -30,7 +30,6 @@ public class FactoryConfiguration {
                     : factoryConfiguration;
         }
         public Session getSession() {
-
             return sessionFactory.openSession();
         }
     }

@@ -1,14 +1,20 @@
 package entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Program {
+    @Id
     private String programId;
     private String programName;
     private String duration;
     private double fee;
 
+    @ManyToMany
     private List<Student> studentList = new ArrayList<>();
 
     public Program() {
