@@ -21,4 +21,8 @@ public class LoginFormController {
                 window.centerOnScreen();
             }
         }
+
+    public void userNameOnAction(ActionEvent actionEvent) {
+        txtPassword.requestFocus();
+    }
 }

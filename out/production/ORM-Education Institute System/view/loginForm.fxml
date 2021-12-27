@@ -27,7 +27,7 @@
                   <Image url="@assets/IconBros.png" />
                </image>
             </ImageView>
-            <TextField fx:id="txtUserName" layoutX="25.0" layoutY="183.0" prefHeight="43.0" prefWidth="344.0" promptText="User Name" style="-fx-background-radius: 10;" />
+            <TextField fx:id="txtUserName" layoutX="25.0" layoutY="183.0" onAction="#userNameOnAction" prefHeight="43.0" prefWidth="344.0" promptText="User Name" style="-fx-background-radius: 10;" />
             <TextField fx:id="txtPassword" layoutX="25.0" layoutY="256.0" prefHeight="43.0" prefWidth="344.0" promptText="Password" style="-fx-background-radius: 10;" />
             <JFXButton buttonType="RAISED" layoutX="156.0" layoutY="376.0" onAction="#LogInOnAction" text="Login" textFill="#860a0a">
                <font>
