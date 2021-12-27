@@ -14,7 +14,7 @@ public class Program {
     private String duration;
     private double fee;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "")
     private List<Student> studentList = new ArrayList<>();
 
     public Program() {
