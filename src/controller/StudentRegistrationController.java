@@ -1,7 +1,10 @@
 package controller;
 
+import bo.BoFactory;
+import bo.custom.StudentBO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import dto.StudentDTO;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -9,11 +12,13 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.util.Duration;
 
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.Date;
 
 public class StudentRegistrationController {
+    private final StudentBO studentBO = (StudentBO) BoFactory.getBOFactory().getBO(BoFactory.BoTypes.STUDENT);
     public Label txtDate;
     public Label txtTime;
     public JFXButton btnBack;
@@ -88,7 +93,27 @@ public class StudentRegistrationController {
         txtPhoneNumber.requestFocus();
     }
 
-    public void addOnAction(ActionEvent actionEvent) {
+    public void addOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        String studentId = txtId.getText();
+        String studentName = txtFullName.getText();
+        String address = txtAddress.getText();
+        String birthday =String.valueOf(dpBirthday.getValue());
+        int age = Integer.parseInt(txtAge.getText());
+        String gender = String.valueOf(cmbGender.getValue());
+        String phoneNumber = txtPhoneNumber.getText();
+        String education = txtxEducation.getText();
+
+        StudentDTO studentDTO = new StudentDTO(studentId,studentName,address,birthday,age,gender,phoneNumber,education);
+
+        if (studentBO.addStudent(studentDTO)) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Saved..").show();
+           /* setItemsToTable(customerBO.getAll());
+            setCustomerId();
+            clearText();*/
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Try Again..").show();
+
+        }
     }
 
     public void updateOnAction(ActionEvent actionEvent) {

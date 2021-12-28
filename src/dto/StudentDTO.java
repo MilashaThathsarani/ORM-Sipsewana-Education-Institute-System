@@ -38,6 +38,9 @@ public class StudentDTO {
         this.setProgramList(programList);
     }
 
+    public StudentDTO(String studentId, String studentName, String address, String birthday, int age, String gender, String phoneNumber, String education) {
+    }
+
     public String getStudentId() {
         return studentId;
     }

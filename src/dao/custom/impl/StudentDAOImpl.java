@@ -1,34 +1,42 @@
 package dao.custom.impl;
 
 import dao.custom.StudentDAO;
+import dto.StudentDTO;
 import entity.Student;
+import entity.SuperEntity;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class StudentDAOImpl implements StudentDAO {
+
     @Override
-    public boolean add(Student student) throws SQLException, ClassNotFoundException {
+    public boolean add(Student studentDTO) throws SQLException, ClassNotFoundException {
         return false;
     }
 
     @Override
-    public boolean delete(String s) throws SQLException, ClassNotFoundException {
+    public boolean add(SuperEntity entity) throws SQLException, ClassNotFoundException {
         return false;
     }
 
     @Override
-    public boolean update(Student student) throws SQLException, ClassNotFoundException {
+    public boolean delete(Object o) throws SQLException, ClassNotFoundException {
         return false;
     }
 
     @Override
-    public Student search(String s) throws SQLException, ClassNotFoundException {
+    public boolean update(SuperEntity entity) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public SuperEntity search(Object o) throws SQLException, ClassNotFoundException {
         return null;
     }
 
     @Override
-    public ArrayList<Student> getAll() throws SQLException, ClassNotFoundException {
+    public ArrayList getAll() throws SQLException, ClassNotFoundException {
         return null;
     }
 }

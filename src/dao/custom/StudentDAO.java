@@ -1,6 +1,13 @@
 package dao.custom;
 
+import bo.SuperBO;
+import dao.SuperDAO;
+import dto.StudentDTO;
 import entity.Student;
 
-public interface StudentDAO extends CrudDAO<Student,String> {
+import java.sql.SQLException;
+
+
+public interface StudentDAO extends SuperDAO {
+    boolean add(Student studentDTO) throws SQLException, ClassNotFoundException;
 }

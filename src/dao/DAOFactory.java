@@ -32,7 +32,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes {
-        STUDENT, ITEM, ORDER, ORDERDETAILS, QUERYDAO
+        STUDENT
     }
 
 }
