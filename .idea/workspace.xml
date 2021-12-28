@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8742d7b5-2996-4549-b170-6836afb1b23f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ORM-Education Institute System/entity/Program.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ORM-Education Institute System/entity/Program.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ORM-Education Institute System/entity/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ORM-Education Institute System/entity/Student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ORM-Education Institute System/util/FactoryConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ORM-Education Institute System/util/FactoryConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/CrudDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/CrudDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/custom/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/custom/StudentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/custom/impl/StudentDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/custom/impl/StudentDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DAOFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +14,8 @@
       <list>
         <option value="JavaFXApplication" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -86,7 +80,7 @@
       <workItem from="1640488951895" duration="5876000" />
       <workItem from="1640529350163" duration="5644000" />
       <workItem from="1640575444622" duration="14544000" />
-      <workItem from="1640658897042" duration="596000" />
+      <workItem from="1640658897042" duration="1239000" />
     </task>
     <servers />
   </component>
