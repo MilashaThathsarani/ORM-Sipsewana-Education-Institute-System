@@ -916,5 +916,112 @@
     <user id="290" parent="1" name="root">
       <Host>localhost</Host>
     </user>
+    <table id="291" parent="10" name="program"/>
+    <table id="292" parent="10" name="student"/>
+    <table id="293" parent="10" name="student_program"/>
+    <column id="294" parent="291" name="programId">
+      <Position>1</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="295" parent="291" name="duration">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="296" parent="291" name="fee">
+      <Position>3</Position>
+      <DataType>double|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="297" parent="291" name="programName">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="298" parent="291" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>programId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="299" parent="292" name="studentId">
+      <Position>1</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="300" parent="292" name="address">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="301" parent="292" name="age">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="302" parent="292" name="birthday">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="303" parent="292" name="education">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="304" parent="292" name="gender">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="305" parent="292" name="phoneNumber">
+      <Position>7</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="306" parent="292" name="studentName">
+      <Position>8</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="307" parent="292" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>studentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="308" parent="293" name="studentList_studentId">
+      <Position>1</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="309" parent="293" name="programList_programId">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="310" parent="293" name="FKjh1mejt4kyoaryhcvhm4ion04">
+      <ColNames>studentList_studentId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="311" parent="293" name="FK7gs8k1ay1rvb0tml3pf73xam9">
+      <ColNames>programList_programId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <foreign-key id="312" parent="293" name="FKjh1mejt4kyoaryhcvhm4ion04">
+      <ColNames>studentList_studentId</ColNames>
+      <RefTableName>student</RefTableName>
+      <RefColNames>studentId</RefColNames>
+    </foreign-key>
+    <foreign-key id="313" parent="293" name="FK7gs8k1ay1rvb0tml3pf73xam9">
+      <ColNames>programList_programId</ColNames>
+      <RefTableName>program</RefTableName>
+      <RefColNames>programId</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>

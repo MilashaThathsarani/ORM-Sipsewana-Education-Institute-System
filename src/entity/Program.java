@@ -14,18 +14,17 @@ public class Program {
     private String duration;
     private double fee;
 
-    @ManyToMany(mappedBy = "")
+    @ManyToMany(mappedBy = "programList")
     private List<Student> studentList = new ArrayList<>();
 
     public Program() {
     }
 
-    public Program(String programId, String programName, String duration, double fee, List<Student> studentList) {
+    public Program(String programId, String programName, String duration, double fee) {
         this.setProgramId(programId);
         this.setProgramName(programName);
         this.setDuration(duration);
         this.setFee(fee);
-        this.setStudentList(studentList);
     }
 
     public String getProgramId() {
@@ -60,14 +59,6 @@ public class Program {
         this.fee = fee;
     }
 
-    public List<Student> getStudentList() {
-        return studentList;
-    }
-
-    public void setStudentList(List<Student> studentList) {
-        this.studentList = studentList;
-    }
-
     @Override
     public String toString() {
         return "Program{" +
@@ -75,7 +66,6 @@ public class Program {
                 ", programName='" + programName + '\'' +
                 ", duration='" + duration + '\'' +
                 ", fee=" + fee +
-                ", studentList=" + studentList +
                 '}';
     }
 }

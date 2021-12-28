@@ -18,13 +18,14 @@ public class Student {
     private String phoneNumber;
     private String education;
 
-    @ManyToMany(mappedBy = "programList")
+
+    @ManyToMany
     private List<Program> programList = new ArrayList<>();
 
     public Student() {
     }
 
-    public Student(String studentId, String studentName, String address, String birthday, int age, String gender, String phoneNumber, String education, List<Program> programList) {
+    public Student(String studentId, String studentName, String address, String birthday, int age, String gender, String phoneNumber, String education) {
         this.setStudentId(studentId);
         this.setStudentName(studentName);
         this.setAddress(address);
@@ -33,7 +34,6 @@ public class Student {
         this.setGender(gender);
         this.setPhoneNumber(phoneNumber);
         this.setEducation(education);
-        this.setProgramList(programList);
     }
 
     public String getStudentId() {
@@ -100,14 +100,6 @@ public class Student {
         this.education = education;
     }
 
-    public List<Program> getProgramList() {
-        return programList;
-    }
-
-    public void setProgramList(List<Program> programList) {
-        this.programList = programList;
-    }
-
     @Override
     public String toString() {
         return "Student{" +
@@ -119,7 +111,6 @@ public class Student {
                 ", gender='" + gender + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", education='" + education + '\'' +
-                ", programList=" + programList +
                 '}';
     }
 }

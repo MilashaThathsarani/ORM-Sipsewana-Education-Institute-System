@@ -20,7 +20,7 @@ public class FactoryConfiguration {
         } catch (IOException e) {
             throw new RuntimeException("There is issue in Hibernate util");
         }
-            Configuration configuration = new Configuration().configure().addAnnotatedClass(Student.class)
+            Configuration configuration = new Configuration().addAnnotatedClass(Student.class)
                     .addAnnotatedClass(Program.class).mergeProperties(properties);
             sessionFactory = configuration.buildSessionFactory();
         }
