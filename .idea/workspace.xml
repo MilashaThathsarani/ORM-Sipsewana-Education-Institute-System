@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8742d7b5-2996-4549-b170-6836afb1b23f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b0d38d14-feae-4aae-aa10-83bbd72c603b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b0d38d14-feae-4aae-aa10-83bbd72c603b.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ORM-Education Institute System/AppInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ORM-Education Institute System/AppInitializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ORM-Education Institute System/dao/CrudDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ORM-Education Institute System/dao/CrudDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ORM-Education Institute System/dao/custom/StudentDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ORM-Education Institute System/dao/custom/StudentDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ORM-Education Institute System/dao/custom/impl/StudentDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ORM-Education Institute System/dao/custom/impl/StudentDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ORM-Education Institute System/db/DbConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ORM-Education Institute System/entity/Program.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ORM-Education Institute System/entity/Program.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ORM-Education Institute System/entity/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ORM-Education Institute System/entity/Student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ORM-Education Institute System/hibernate.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ORM-Education Institute System/hibernate.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ORM-Education Institute System/util/FactoryConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ORM-Education Institute System/util/FactoryConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/DbConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hibernate.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/hibernate.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/FactoryConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/FactoryConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/CrudDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/SuperDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/SuperDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/custom/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/custom/StudentDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +83,7 @@
       <workItem from="1640488951895" duration="5876000" />
       <workItem from="1640529350163" duration="5644000" />
       <workItem from="1640575444622" duration="14544000" />
-      <workItem from="1640658897042" duration="8046000" />
+      <workItem from="1640658897042" duration="8604000" />
     </task>
     <servers />
   </component>
@@ -117,30 +103,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="473" y="119" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1536.824@0.0.1536.824" timestamp="1640672093448" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1640676640719">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1640676640719" />
     <state x="473" y="154" key="FileChooserDialogImpl" timestamp="1640622096330">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="473" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1640622096330" />
-    <state width="1493" height="369" key="GridCell.Tab.0.bottom" timestamp="1640672161534">
+    <state width="1493" height="369" key="GridCell.Tab.0.bottom" timestamp="1640676290842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="369" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1640672161534" />
-    <state width="1493" height="369" key="GridCell.Tab.0.center" timestamp="1640672161534">
+    <state width="1493" height="369" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1640676290842" />
+    <state width="1493" height="369" key="GridCell.Tab.0.center" timestamp="1640676290842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="369" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1640672161534" />
-    <state width="1493" height="369" key="GridCell.Tab.0.left" timestamp="1640672161534">
+    <state width="1493" height="369" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1640676290842" />
+    <state width="1493" height="369" key="GridCell.Tab.0.left" timestamp="1640676290842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="369" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1640672161534" />
-    <state width="1493" height="369" key="GridCell.Tab.0.right" timestamp="1640672161534">
+    <state width="1493" height="369" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1640676290842" />
+    <state width="1493" height="369" key="GridCell.Tab.0.right" timestamp="1640676290842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="369" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1640672161534" />
+    <state width="1493" height="369" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1640676290842" />
     <state x="249" y="0" key="SettingsEditor" timestamp="1640605583406">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1640605583406" />
+    <state x="655" y="279" width="312" height="266" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1640676247907">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="655" y="279" width="312" height="266" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824@0.0.1536.824" timestamp="1640676247907" />
     <state x="209" y="33" key="new project wizard" timestamp="1640622099930">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
