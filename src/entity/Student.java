@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Student {
+public class Student implements SuperEntity{
     @Id
     private String studentId;
     private String studentName;

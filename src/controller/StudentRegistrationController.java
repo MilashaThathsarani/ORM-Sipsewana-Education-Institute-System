@@ -43,10 +43,16 @@ public class StudentRegistrationController {
     public ComboBox cmbGender;
     public JFXTextField txtId;
     public JFXTextField txtSearch;
+    public JFXTextField txtFee;
+    public JFXTextField txtEducation;
 
     public void initialize(){
 
         loadDateAndTime();
+
+        cmbGender.getItems().addAll(
+                "Male",
+                "Female");
     }
 
     private void loadDateAndTime() {
@@ -85,10 +91,6 @@ public class StudentRegistrationController {
         cmbGender.requestFocus();
     }
 
-    public void phoneNumberOnAction(ActionEvent actionEvent) {
-        txtxEducation.requestFocus();
-    }
-
     public void genderOnaction(ActionEvent actionEvent) {
         txtPhoneNumber.requestFocus();
     }
@@ -101,15 +103,12 @@ public class StudentRegistrationController {
         int age = Integer.parseInt(txtAge.getText());
         String gender = String.valueOf(cmbGender.getValue());
         String phoneNumber = txtPhoneNumber.getText();
-        String education = txtxEducation.getText();
+        String education = txtEducation.getText();
 
         StudentDTO studentDTO = new StudentDTO(studentId,studentName,address,birthday,age,gender,phoneNumber,education);
 
         if (studentBO.addStudent(studentDTO)) {
             new Alert(Alert.AlertType.CONFIRMATION, "Saved..").show();
-           /* setItemsToTable(customerBO.getAll());
-            setCustomerId();
-            clearText();*/
         } else {
             new Alert(Alert.AlertType.WARNING, "Try Again..").show();
 
@@ -120,5 +119,16 @@ public class StudentRegistrationController {
     }
 
     public void deleteOnAction(ActionEvent actionEvent) {
+    }
+
+    public void idOnAction(ActionEvent actionEvent) {
+        txtFullName.requestFocus();
+    }
+
+    public void feeOnAction(ActionEvent actionEvent) {
+        txtEducation.requestFocus();
+    }
+
+    public void educationOnAction(ActionEvent actionEvent) {
     }
 }

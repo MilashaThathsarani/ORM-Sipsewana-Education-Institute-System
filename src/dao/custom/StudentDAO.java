@@ -8,6 +8,6 @@ import entity.Student;
 import java.sql.SQLException;
 
 
-public interface StudentDAO extends SuperDAO {
-    boolean add(Student studentDTO) throws SQLException, ClassNotFoundException;
+public interface StudentDAO extends SuperDAO<Student,String> {
+
 }
