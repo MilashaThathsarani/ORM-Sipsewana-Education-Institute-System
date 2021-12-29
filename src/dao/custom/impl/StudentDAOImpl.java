@@ -1,9 +1,7 @@
 package dao.custom.impl;
 
 import dao.custom.StudentDAO;
-import dto.StudentDTO;
 import entity.Student;
-import entity.SuperEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.FactoryConfiguration;

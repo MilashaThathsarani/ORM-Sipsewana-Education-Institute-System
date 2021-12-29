@@ -1,13 +1,11 @@
 package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Student implements SuperEntity{
+public class Student implements SuperEntity {
     @Id
     private String studentId;
     private String studentName;
@@ -18,14 +16,28 @@ public class Student implements SuperEntity{
     private String phoneNumber;
     private String education;
 
-
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Program> programList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "student")
+    private List<Registration> registration;
+
+
+    public Student(String studentId, String studentName, String address, String birthday, int age, String gender, String phoneNumber, String education) {
+        this.studentId = studentId;
+        this.studentName = studentName;
+        this.address = address;
+        this.birthday = birthday;
+        this.age = age;
+        this.gender = gender;
+        this.phoneNumber = phoneNumber;
+        this.education = education;
+    }
 
     public Student() {
     }
 
-    public Student(String studentId, String studentName, String address, String birthday, int age, String gender, String phoneNumber, String education) {
+    public Student(String studentId, String studentName, String address, String birthday, int age, String gender, String phoneNumber, String education, List<Program> programList, List<Registration> registration) {
         this.setStudentId(studentId);
         this.setStudentName(studentName);
         this.setAddress(address);
@@ -34,6 +46,8 @@ public class Student implements SuperEntity{
         this.setGender(gender);
         this.setPhoneNumber(phoneNumber);
         this.setEducation(education);
+        this.setProgramList(programList);
+        this.setRegistration(registration);
     }
 
     public String getStudentId() {
@@ -100,6 +114,22 @@ public class Student implements SuperEntity{
         this.education = education;
     }
 
+    public List<Program> getProgramList() {
+        return programList;
+    }
+
+    public void setProgramList(List<Program> programList) {
+        this.programList = programList;
+    }
+
+    public List<Registration> getRegistration() {
+        return registration;
+    }
+
+    public void setRegistration(List<Registration> registration) {
+        this.registration = registration;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -111,6 +141,8 @@ public class Student implements SuperEntity{
                 ", gender='" + gender + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", education='" + education + '\'' +
+                ", programList=" + programList +
+                ", registration=" + registration +
                 '}';
     }
 }

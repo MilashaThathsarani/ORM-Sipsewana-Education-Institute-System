@@ -1,12 +1,7 @@
 package dto;
 
-import entity.Program;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class StudentDTO {
@@ -20,13 +15,10 @@ public class StudentDTO {
     private String phoneNumber;
     private String education;
 
-    @ManyToMany(mappedBy = "programList")
-    private List<Program> programList = new ArrayList<>();
-
     public StudentDTO() {
     }
 
-    public StudentDTO(String studentId, String studentName, String address, String birthday, int age, String gender, String phoneNumber, String education, List<Program> programList) {
+    public StudentDTO(String studentId, String studentName, String address, String birthday, int age, String gender, String phoneNumber, String education) {
         this.setStudentId(studentId);
         this.setStudentName(studentName);
         this.setAddress(address);
@@ -35,10 +27,6 @@ public class StudentDTO {
         this.setGender(gender);
         this.setPhoneNumber(phoneNumber);
         this.setEducation(education);
-        this.setProgramList(programList);
-    }
-
-    public StudentDTO(String studentId, String studentName, String address, String birthday, int age, String gender, String phoneNumber, String education) {
     }
 
     public String getStudentId() {
@@ -105,17 +93,9 @@ public class StudentDTO {
         this.education = education;
     }
 
-    public List<Program> getProgramList() {
-        return programList;
-    }
-
-    public void setProgramList(List<Program> programList) {
-        this.programList = programList;
-    }
-
     @Override
     public String toString() {
-        return "Student{" +
+        return "StudentDTO{" +
                 "studentId='" + studentId + '\'' +
                 ", studentName='" + studentName + '\'' +
                 ", address='" + address + '\'' +
@@ -124,7 +104,6 @@ public class StudentDTO {
                 ", gender='" + gender + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", education='" + education + '\'' +
-                ", programList=" + programList +
                 '}';
     }
 }

@@ -24,5 +24,11 @@ public class StudentBOImpl implements StudentBO {
                 studentDTO.getPhoneNumber(),
                 studentDTO.getEducation()));
     }
+
+
+    @Override
+    public boolean ifStudentExist(String studentId) {
+        return false;
+    }
 }
 

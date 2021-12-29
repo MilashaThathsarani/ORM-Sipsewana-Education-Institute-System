@@ -6,14 +6,14 @@ import entity.SuperEntity;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface SuperDAO <T, ID> extends SuperEntity {
-    boolean add(T t) throws SQLException, ClassNotFoundException;
+public interface SuperDAO <Entity extends SuperEntity, Id> {
+    boolean add(Entity t) throws SQLException, ClassNotFoundException;
 
-    boolean delete(ID id) throws SQLException, ClassNotFoundException;
+    boolean delete(Id id) throws SQLException, ClassNotFoundException;
 
-    boolean update(T t) throws SQLException, ClassNotFoundException;
+    boolean update(Entity t) throws SQLException, ClassNotFoundException;
 
-    T search(ID id) throws SQLException, ClassNotFoundException;
+    Entity search(Id id) throws SQLException, ClassNotFoundException;
 
-    ArrayList<T> getAll() throws SQLException, ClassNotFoundException;
+    ArrayList<Entity> getAll() throws SQLException, ClassNotFoundException;
 }

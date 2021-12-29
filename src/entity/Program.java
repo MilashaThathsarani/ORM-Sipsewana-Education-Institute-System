@@ -1,8 +1,6 @@
 package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,10 +19,18 @@ public class Program {
     }
 
     public Program(String programId, String programName, String duration, double fee) {
+        this.programId = programId;
+        this.programName = programName;
+        this.duration = duration;
+        this.fee = fee;
+    }
+
+    public Program(String programId, String programName, String duration, double fee, List<Student> studentList) {
         this.setProgramId(programId);
         this.setProgramName(programName);
         this.setDuration(duration);
         this.setFee(fee);
+        this.setStudentList(studentList);
     }
 
     public String getProgramId() {
@@ -59,6 +65,14 @@ public class Program {
         this.fee = fee;
     }
 
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
+    }
+
     @Override
     public String toString() {
         return "Program{" +
@@ -66,6 +80,7 @@ public class Program {
                 ", programName='" + programName + '\'' +
                 ", duration='" + duration + '\'' +
                 ", fee=" + fee +
+                ", studentList=" + studentList +
                 '}';
     }
 }

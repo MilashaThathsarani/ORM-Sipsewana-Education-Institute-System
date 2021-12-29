@@ -45,6 +45,7 @@ public class StudentRegistrationController {
     public JFXTextField txtSearch;
     public JFXTextField txtFee;
     public JFXTextField txtEducation;
+    public JFXTextField txtBirthDay;
 
     public void initialize(){
 
@@ -99,20 +100,40 @@ public class StudentRegistrationController {
         String studentId = txtId.getText();
         String studentName = txtFullName.getText();
         String address = txtAddress.getText();
-        String birthday =String.valueOf(dpBirthday.getValue());
+        //String birthday =String.valueOf(dpBirthday.getValue());
+        String birthday = txtBirthDay.getText();
         int age = Integer.parseInt(txtAge.getText());
         String gender = String.valueOf(cmbGender.getValue());
         String phoneNumber = txtPhoneNumber.getText();
         String education = txtEducation.getText();
 
-        StudentDTO studentDTO = new StudentDTO(studentId,studentName,address,birthday,age,gender,phoneNumber,education);
+        try {
+            if (existStudent(studentId)) {
+                new Alert(Alert.AlertType.ERROR, studentId + " already exists").show();
 
-        if (studentBO.addStudent(studentDTO)) {
+            } else {
+                StudentDTO studentDTO = new StudentDTO(studentId,studentName,address,birthday,age,gender,phoneNumber,education);
+                studentBO.addStudent(studentDTO);
+
+                new Alert(Alert.AlertType.CONFIRMATION, "Saved..").show();
+
+            }
+
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "Failed to save the customer " + e.getMessage()).show();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        /*if (studentBO.addStudent(studentDTO)) {
             new Alert(Alert.AlertType.CONFIRMATION, "Saved..").show();
         } else {
             new Alert(Alert.AlertType.WARNING, "Try Again..").show();
 
-        }
+        }*/
+    }
+
+    boolean existStudent(String studentId) {
+        return studentBO.ifStudentExist(studentId);
     }
 
     public void updateOnAction(ActionEvent actionEvent) {
