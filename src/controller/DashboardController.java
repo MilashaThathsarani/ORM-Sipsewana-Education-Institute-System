@@ -56,4 +56,10 @@ public class DashboardController {
         window.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ViewStudentDetails.fxml"))));
         window.centerOnScreen();
     }
+
+    public void viewProgramOnAction(ActionEvent actionEvent) throws IOException {
+        Stage window = (Stage) dashboardContext.getScene().getWindow();
+        window.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ViewProgramDetails.fxml"))));
+        window.centerOnScreen();
+    }
 }

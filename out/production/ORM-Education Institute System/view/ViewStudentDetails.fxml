@@ -1,10 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewStudentDetailsController">
+<AnchorPane fx:id="viewContext" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewStudentDetailsController">
    <children>
-      <AnchorPane prefHeight="100.0" prefWidth="1200.0" style="-fx-background-color: #ff7675;" />
+      <AnchorPane prefHeight="100.0" prefWidth="1200.0" style="-fx-background-color: #ff7675;">
+         <children>
+            <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="1085.0" layoutY="7.0" onAction="#backOnAction" prefHeight="86.0" prefWidth="115.0" style="-fx-background-radius: 20;" text="--&gt;">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="131.0" layoutY="21.0" text="Student Details" textFill="#860a0a">
+               <font>
+                  <Font name="Berlin Sans FB" size="52.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="22.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/4.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="tblStudent" layoutX="25.0" layoutY="140.0" prefHeight="530.0" prefWidth="1150.0">
+        <columns>
+          <TableColumn fx:id="colStudentId" prefWidth="94.0" text="Student Id" />
+          <TableColumn fx:id="colStudentName" prefWidth="200.0" text="Student Name" />
+            <TableColumn fx:id="colAddress" prefWidth="273.0" text="Address" />
+            <TableColumn fx:id="colBirthDay" prefWidth="122.0" text="BirthDay" />
+            <TableColumn fx:id="colAge" prefWidth="79.0" text="Age" />
+            <TableColumn fx:id="colGender" prefWidth="93.0" text="Gender" />
+            <TableColumn fx:id="colPhoneNumber" prefWidth="121.0" text="Phone Number" />
+            <TableColumn fx:id="colEducation" prefWidth="167.0" text="Education" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

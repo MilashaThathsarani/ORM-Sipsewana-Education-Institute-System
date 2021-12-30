@@ -57,7 +57,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="402.0" layoutY="521.0" text="View more">
+      <JFXButton buttonType="RAISED" layoutX="402.0" layoutY="521.0" onAction="#viewProgramOnAction" text="View more">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
