@@ -5,6 +5,7 @@ import bo.custom.StudentBO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dto.StudentDTO;
+import entity.Student;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -27,7 +28,6 @@ public class StudentRegistrationController {
     public DatePicker dpBirthday;
     public TextField txtAge;
     public TextField txtPhoneNumber;
-    public TextField txtxEducation;
     public JFXButton btnAdd;
     public JFXButton btnUpdate;
     public JFXButton btnDelete;
@@ -43,7 +43,6 @@ public class StudentRegistrationController {
     public ComboBox cmbGender;
     public JFXTextField txtId;
     public JFXTextField txtSearch;
-    public JFXTextField txtFee;
     public JFXTextField txtEducation;
     public JFXTextField txtBirthDay;
 
@@ -54,6 +53,18 @@ public class StudentRegistrationController {
         cmbGender.getItems().addAll(
                 "Male",
                 "Female");
+
+    }
+
+    public void idOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        String studentId = txtId.getText();
+
+        StudentDTO studentDTO = studentBO.searchStudent(studentId);
+        if (studentDTO == null) {
+            new Alert(Alert.AlertType.WARNING, "Empty Result Set").show();
+        } else {
+            setData(studentDTO);
+        }
     }
 
     private void loadDateAndTime() {
@@ -113,7 +124,7 @@ public class StudentRegistrationController {
 
             } else {
                 StudentDTO studentDTO = new StudentDTO(studentId,studentName,address,birthday,age,gender,phoneNumber,education);
-                studentBO.addStudent(studentDTO);
+                studentBO.add(studentDTO);
 
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved..").show();
 
@@ -136,14 +147,39 @@ public class StudentRegistrationController {
         return studentBO.ifStudentExist(studentId);
     }
 
-    public void updateOnAction(ActionEvent actionEvent) {
+    public void updateOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        String studentId = txtId.getText();
+        String studentName = txtFullName.getText();
+        String address = txtAddress.getText();
+        //String birthday =String.valueOf(dpBirthday.getValue());
+        String birthday = txtBirthDay.getText();
+        int age = Integer.parseInt(txtAge.getText());
+        String gender = String.valueOf(cmbGender.getValue());
+        String phoneNumber = txtPhoneNumber.getText();
+        String education = txtEducation.getText();
+
+        StudentDTO studentDTO = new StudentDTO(studentId,studentName,address,birthday,age,gender,phoneNumber,education);
+
+        if (studentBO.update(studentDTO)) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Updated..").show();
+       } else {
+            new Alert(Alert.AlertType.WARNING, "Try Again").show();
+
+        }
+    }
+    private void setData(StudentDTO s) {
+       txtId.setText(s.getStudentId());
+       txtFullName.setText(s.getStudentName());
+       txtAddress.setText(s.getAddress());
+       txtBirthDay.setText(s.getBirthday());
+       txtAge.setText(String.valueOf(s.getAge()));
+       //cmbGender.setValue(s.getGender());
+       txtPhoneNumber.setText(s.getPhoneNumber());
+       txtEducation.setText(s.getEducation());
     }
 
     public void deleteOnAction(ActionEvent actionEvent) {
-    }
 
-    public void idOnAction(ActionEvent actionEvent) {
-        txtFullName.requestFocus();
     }
 
     public void feeOnAction(ActionEvent actionEvent) {

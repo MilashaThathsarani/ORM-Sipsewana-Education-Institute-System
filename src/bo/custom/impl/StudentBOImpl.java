@@ -13,7 +13,22 @@ public class StudentBOImpl implements StudentBO {
     private final StudentDAO studentDAO = (StudentDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
 
     @Override
-    public boolean addStudent(StudentDTO studentDTO) throws SQLException, ClassNotFoundException {
+    public StudentDTO searchStudent(String studentId) throws SQLException, ClassNotFoundException {
+        Student student = studentDAO.search(studentId);
+        return new StudentDTO(
+                student.getStudentId(),
+                student.getStudentName(),
+                student.getAddress(),
+                student.getBirthday(),
+                student.getAge(),
+                student.getGender(),
+                student.getPhoneNumber(),
+                student.getEducation());
+
+    }
+
+    @Override
+    public boolean add(StudentDTO studentDTO) throws SQLException, ClassNotFoundException {
         return studentDAO.add(new Student(
                 studentDTO.getStudentId(),
                 studentDTO.getStudentName(),
@@ -29,6 +44,19 @@ public class StudentBOImpl implements StudentBO {
     @Override
     public boolean ifStudentExist(String studentId) {
         return false;
+    }
+
+    @Override
+    public boolean update(StudentDTO studentDTO) throws SQLException, ClassNotFoundException {
+        return studentDAO.update(new Student(
+                studentDTO.getStudentId(),
+                studentDTO.getStudentName(),
+                studentDTO.getAddress(),
+                studentDTO.getBirthday(),
+                studentDTO.getAge(),
+                studentDTO.getGender(),
+                studentDTO.getPhoneNumber(),
+                studentDTO.getEducation()));
     }
 }
 
