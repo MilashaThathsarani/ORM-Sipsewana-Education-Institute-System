@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProgramController">
+<AnchorPane fx:id="programContext" prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProgramController">
    <children>
       <AnchorPane prefHeight="110.0" prefWidth="1600.0" style="-fx-background-color: #ff7675;">
          <children>
@@ -48,7 +48,7 @@
          </font>
       </Label>
       <JFXTextField fx:id="txtId" focusColor="#752003" layoutX="212.0" layoutY="149.0" prefHeight="52.0" prefWidth="219.0" />
-      <JFXTextField fx:id="txtSearch" focusColor="#752003" layoutX="1207.0" layoutY="138.0" prefHeight="52.0" prefWidth="266.0" promptText="Search">
+      <JFXTextField fx:id="txtSearch" focusColor="#752003" labelFloat="true" layoutX="1207.0" layoutY="138.0" prefHeight="52.0" prefWidth="266.0" promptText="Search">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

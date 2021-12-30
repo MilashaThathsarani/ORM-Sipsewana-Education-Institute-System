@@ -13,11 +13,16 @@ import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import view.tm.StudentTM;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
@@ -51,6 +56,7 @@ public class StudentRegistrationController {
     public JFXTextField txtSearch;
     public JFXTextField txtEducation;
     public JFXTextField txtBirthDay;
+    public AnchorPane studentContext;
 
     public void initialize() throws SQLException, ClassNotFoundException {
 
@@ -178,7 +184,10 @@ public class StudentRegistrationController {
        txtEducation.setText(s.getEducation());
     }
 
-    public void backOnAction(ActionEvent actionEvent) {
+    public void backOnAction(ActionEvent actionEvent) throws IOException {
+        Stage window = (Stage) studentContext.getScene().getWindow();
+        window.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/DashboardForm.fxml"))));
+        window.centerOnScreen();
     }
 
     public void fullNameOnAction(ActionEvent actionEvent) {

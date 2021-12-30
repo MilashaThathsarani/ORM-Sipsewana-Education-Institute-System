@@ -7,19 +7,31 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dto.ProgramDTO;
 import dto.StudentDTO;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 import view.tm.ProgramTM;
 import view.tm.StudentTM;
 
+import java.io.IOException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ProgramController {
     private final ProgramBO programBO = (ProgramBO) BoFactory.getBOFactory().getBO(BoFactory.BoTypes.PROGRAM);
@@ -39,6 +51,7 @@ public class ProgramController {
     public JFXTextField txtProgramName;
     public JFXTextField txtDuration;
     public JFXTextField txtFee;
+    public AnchorPane programContext;
 
     public void initialize() throws SQLException, ClassNotFoundException {
 
@@ -47,7 +60,26 @@ public class ProgramController {
         colDuration.setCellValueFactory(new PropertyValueFactory<>("duration"));
         colFee.setCellValueFactory(new PropertyValueFactory<>("fee"));
 
+        loadDateAndTime();
+
         setItemsToTable(programBO.getAll());
+    }
+
+    private void loadDateAndTime() {
+        Date date = new Date();
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+        txtDate.setText(f.format(date));
+
+        Timeline time = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            LocalTime currentTime = LocalTime.now();
+            txtTime.setText(
+                    currentTime.getHour() + " : " + currentTime.getMinute() + " : " + currentTime.getSecond()
+            );
+        }),
+                new KeyFrame(Duration.seconds(1))
+        );
+        time.setCycleCount(Animation.INDEFINITE);
+        time.play();
     }
 
 
@@ -83,7 +115,10 @@ public class ProgramController {
         tblProgram.setItems(obList);
     }
 
-    public void backOnAction(ActionEvent actionEvent) {
+    public void backOnAction(ActionEvent actionEvent) throws IOException {
+        Stage window = (Stage) programContext.getScene().getWindow();
+        window.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/DashboardForm.fxml"))));
+        window.centerOnScreen();
     }
 
     public void programNameOnAction(ActionEvent actionEvent) {

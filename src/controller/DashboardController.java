@@ -1,5 +1,6 @@
 package controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,6 +14,7 @@ import java.net.URL;
 public class DashboardController {
 
     public AnchorPane dashboardContext;
+    public JFXButton btnBack;
 
     public void initialize(){
 
@@ -40,6 +42,12 @@ public class DashboardController {
     public void PaymentOnAction(ActionEvent actionEvent) throws IOException {
         Stage window = (Stage) dashboardContext.getScene().getWindow();
         window.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/Payment.fxml"))));
+        window.centerOnScreen();
+    }
+
+    public void backOnAction(ActionEvent actionEvent) throws IOException {
+        Stage window = (Stage) dashboardContext.getScene().getWindow();
+        window.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/LoginForm.fxml"))));
         window.centerOnScreen();
     }
 }
