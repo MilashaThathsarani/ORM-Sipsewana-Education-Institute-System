@@ -73,6 +73,53 @@ public class StudentRegistrationController {
 
     }
 
+    private void loadDateAndTime() {
+        Date date = new Date();
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+        txtDate.setText(f.format(date));
+
+        Timeline time = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            LocalTime currentTime = LocalTime.now();
+            txtTime.setText(
+                    currentTime.getHour() + " : " + currentTime.getMinute() + " : " + currentTime.getSecond()
+            );
+        }),
+                new KeyFrame(Duration.seconds(1))
+        );
+        time.setCycleCount(Animation.INDEFINITE);
+        time.play();
+    }
+
+    public void addOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        String studentId = txtId.getText();
+        String studentName = txtFullName.getText();
+        String address = txtAddress.getText();
+        String birthday =String.valueOf(dpBirthday.getValue());
+        //String birthday = txtBirthDay.getText();
+        int age = Integer.parseInt(txtAge.getText());
+        String gender = String.valueOf(cmbGender.getValue());
+        String phoneNumber = txtPhoneNumber.getText();
+        String education = txtEducation.getText();
+
+        try {
+            if (existStudent(studentId)) {
+                new Alert(Alert.AlertType.ERROR, studentId + " already exists").show();
+            } else {
+                StudentDTO studentDTO = new StudentDTO(studentId,studentName,address,birthday,age,gender,phoneNumber,education);
+                studentBO.add(studentDTO);
+
+                new Alert(Alert.AlertType.CONFIRMATION, "Saved..").show();
+                setItemsToTable(studentBO.getAll());
+
+            }
+
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "Failed to save the customer " + e.getMessage()).show();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void setItemsToTable(ArrayList<StudentTM> student) {
         ObservableList<StudentTM> obList = FXCollections.observableArrayList();
         student.forEach(e -> {
@@ -93,82 +140,6 @@ public class StudentRegistrationController {
         }
     }
 
-    private void loadDateAndTime() {
-        Date date = new Date();
-        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
-        txtDate.setText(f.format(date));
-
-        Timeline time = new Timeline(new KeyFrame(Duration.ZERO, e -> {
-            LocalTime currentTime = LocalTime.now();
-            txtTime.setText(
-                    currentTime.getHour() + " : " + currentTime.getMinute() + " : " + currentTime.getSecond()
-            );
-        }),
-                new KeyFrame(Duration.seconds(1))
-        );
-        time.setCycleCount(Animation.INDEFINITE);
-        time.play();
-    }
-
-    public void backOnAction(ActionEvent actionEvent) {
-    }
-
-    public void fullNameOnAction(ActionEvent actionEvent) {
-        txtAddress.requestFocus();
-    }
-
-    public void addressOnAction(ActionEvent actionEvent) {
-        dpBirthday.requestFocus();
-    }
-
-    public void birthdayOnAction(ActionEvent actionEvent) {
-        txtAge.requestFocus();
-    }
-
-    public void ageOnAction(ActionEvent actionEvent) {
-        cmbGender.requestFocus();
-    }
-
-    public void genderOnaction(ActionEvent actionEvent) {
-        txtPhoneNumber.requestFocus();
-    }
-
-    public void addOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String studentId = txtId.getText();
-        String studentName = txtFullName.getText();
-        String address = txtAddress.getText();
-        //String birthday =String.valueOf(dpBirthday.getValue());
-        String birthday = txtBirthDay.getText();
-        int age = Integer.parseInt(txtAge.getText());
-        String gender = String.valueOf(cmbGender.getValue());
-        String phoneNumber = txtPhoneNumber.getText();
-        String education = txtEducation.getText();
-
-        try {
-            if (existStudent(studentId)) {
-                new Alert(Alert.AlertType.ERROR, studentId + " already exists").show();
-
-            } else {
-                StudentDTO studentDTO = new StudentDTO(studentId,studentName,address,birthday,age,gender,phoneNumber,education);
-                studentBO.add(studentDTO);
-
-                new Alert(Alert.AlertType.CONFIRMATION, "Saved..").show();
-
-            }
-
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, "Failed to save the customer " + e.getMessage()).show();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        /*if (studentBO.addStudent(studentDTO)) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Saved..").show();
-        } else {
-            new Alert(Alert.AlertType.WARNING, "Try Again..").show();
-
-        }*/
-    }
-
     boolean existStudent(String studentId) {
         return studentBO.ifStudentExist(studentId);
     }
@@ -177,8 +148,7 @@ public class StudentRegistrationController {
         String studentId = txtId.getText();
         String studentName = txtFullName.getText();
         String address = txtAddress.getText();
-        //String birthday =String.valueOf(dpBirthday.getValue());
-        String birthday = txtBirthDay.getText();
+        String birthday =String.valueOf(dpBirthday.getValue());
         int age = Integer.parseInt(txtAge.getText());
         String gender = String.valueOf(cmbGender.getValue());
         String phoneNumber = txtPhoneNumber.getText();
@@ -193,6 +163,10 @@ public class StudentRegistrationController {
 
         }
     }
+
+    public void deleteOnAction(ActionEvent actionEvent) {
+    }
+
     private void setData(StudentDTO s) {
        txtId.setText(s.getStudentId());
        txtFullName.setText(s.getStudentName());
@@ -204,8 +178,27 @@ public class StudentRegistrationController {
        txtEducation.setText(s.getEducation());
     }
 
-    public void deleteOnAction(ActionEvent actionEvent) {
+    public void backOnAction(ActionEvent actionEvent) {
+    }
 
+    public void fullNameOnAction(ActionEvent actionEvent) {
+        txtAddress.requestFocus();
+    }
+
+    public void addressOnAction(ActionEvent actionEvent) {
+        dpBirthday.requestFocus();
+    }
+
+    public void ageOnAction(ActionEvent actionEvent) {
+        cmbGender.requestFocus();
+    }
+
+    public void genderOnaction(ActionEvent actionEvent) {
+        txtPhoneNumber.requestFocus();
+    }
+
+    public void birthDayOnAction(ActionEvent actionEvent) {
+        txtAge.requestFocus();
     }
 
     public void feeOnAction(ActionEvent actionEvent) {
@@ -214,4 +207,5 @@ public class StudentRegistrationController {
 
     public void educationOnAction(ActionEvent actionEvent) {
     }
+
 }

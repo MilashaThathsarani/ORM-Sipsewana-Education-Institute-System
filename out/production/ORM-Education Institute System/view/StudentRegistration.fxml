@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -43,12 +44,24 @@
                <font>
                   <Font name="System Bold" size="25.0" />
                </font></Label>
-            <JFXButton fx:id="btnBack" layoutX="1477.0" layoutY="40.0" onAction="#backOnAction" prefHeight="36.0" prefWidth="72.0" text="Back" />
+            <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="1477.0" layoutY="22.0" onAction="#backOnAction" prefHeight="45.0" prefWidth="87.0" style="-fx-background-color: #d1d8e0; -fx-background-radius: 20;" text="--&gt;">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font></JFXButton>
          </children></AnchorPane>
-      <JFXButton fx:id="btnAdd" layoutX="1067.0" layoutY="434.0" onAction="#addOnAction" text="add" />
-      <JFXButton fx:id="btnUpdate" layoutX="1199.0" layoutY="434.0" onAction="#updateOnAction" text="update" />
-      <JFXButton fx:id="btnDelete" layoutX="1343.0" layoutY="434.0" onAction="#deleteOnAction" text="Delete" />
-      <TableView fx:id="tblStudent" layoutX="42.0" layoutY="530.0" prefHeight="455.0" prefWidth="1511.0">
+      <JFXButton fx:id="btnAdd" buttonType="RAISED" layoutX="920.0" layoutY="421.0" onAction="#addOnAction" prefHeight="58.0" prefWidth="184.0" style="-fx-background-color: #16a085;" text="Add">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="1146.0" layoutY="421.0" onAction="#updateOnAction" prefHeight="58.0" prefWidth="184.0" style="-fx-background-color: #2980b9;" text="update">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btnDelete" layoutX="1369.0" layoutY="421.0" onAction="#deleteOnAction" prefHeight="58.0" prefWidth="184.0" style="-fx-background-color: #e74c3c;" text="Delete">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></JFXButton>
+      <TableView fx:id="tblStudent" layoutX="42.0" layoutY="530.0" prefHeight="444.0" prefWidth="1511.0">
         <columns>
           <TableColumn fx:id="colStudentId" prefWidth="105.0" text="Student Id" />
           <TableColumn fx:id="colFullName" prefWidth="330.0" text="Full Name" />
@@ -66,10 +79,10 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtId" layoutX="170.0" layoutY="128.0" onAction="#idOnAction" prefHeight="52.0" prefWidth="219.0" />
-      <JFXTextField fx:id="txtSearch" layoutX="1197.0" layoutY="128.0" prefHeight="52.0" prefWidth="266.0" promptText="Search">
+      <JFXTextField fx:id="txtId" focusColor="#752003" layoutX="170.0" layoutY="128.0" onAction="#idOnAction" prefHeight="52.0" prefWidth="219.0" />
+      <JFXTextField fx:id="txtSearch" focusColor="#752003" labelFloat="true" layoutX="1197.0" layoutY="128.0" prefHeight="52.0" prefWidth="266.0" promptText="Search">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </JFXTextField>
       <JFXTextField fx:id="txtFullName" focusColor="#752003" labelFloat="true" layoutX="42.0" layoutY="215.0" onAction="#fullNameOnAction" prefHeight="52.0" prefWidth="561.0" promptText="Full Name">
@@ -97,6 +110,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtBirthDay" layoutX="44.0" layoutY="342.0" prefHeight="31.0" prefWidth="332.0" promptText="bdy" />
+      <JFXDatePicker fx:id="dpBirthday" defaultColor="#752003" layoutX="42.0" layoutY="316.0" onAction="#birthDayOnAction" prefHeight="52.0" prefWidth="324.0" promptText="BirthDay" />
    </children>
 </AnchorPane>

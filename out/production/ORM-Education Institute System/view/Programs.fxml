@@ -36,20 +36,24 @@
             </Label>
             <Label fx:id="txtDate" layoutX="880.0" layoutY="31.0" prefHeight="52.0" prefWidth="228.0" />
             <Label fx:id="txtTime" layoutX="1211.0" layoutY="28.0" prefHeight="52.0" prefWidth="228.0" />
-            <JFXButton fx:id="btnBack" layoutX="1488.0" layoutY="39.0" onAction="#backOnAction" prefHeight="36.0" prefWidth="72.0" text="Back" />
+            <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="1468.0" layoutY="23.0" onAction="#backOnAction" prefHeight="45.0" prefWidth="87.0" style="-fx-background-color: #d1d8e0; -fx-background-radius: 20;" text="--&gt;">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </JFXButton>
          </children></AnchorPane>
       <Label layoutX="53.0" layoutY="175.0" text="Programme Id :">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtId" layoutX="212.0" layoutY="149.0" prefHeight="52.0" prefWidth="219.0" />
-      <JFXTextField fx:id="txtSearch" layoutX="1207.0" layoutY="138.0" prefHeight="52.0" prefWidth="266.0" promptText="Search">
+      <JFXTextField fx:id="txtId" focusColor="#752003" layoutX="212.0" layoutY="149.0" prefHeight="52.0" prefWidth="219.0" />
+      <JFXTextField fx:id="txtSearch" focusColor="#752003" layoutX="1207.0" layoutY="138.0" prefHeight="52.0" prefWidth="266.0" promptText="Search">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </JFXTextField>
-      <TableView fx:id="tblProgram" layoutX="47.0" layoutY="462.0" prefHeight="527.0" prefWidth="1491.0">
+      <TableView fx:id="tblProgram" layoutX="47.0" layoutY="462.0" prefHeight="516.0" prefWidth="1491.0">
         <columns>
           <TableColumn fx:id="colProgramId" prefWidth="226.0" text="Program Id" />
           <TableColumn fx:id="colProgramName" prefWidth="594.0" text="Program Name" />
@@ -58,20 +62,29 @@
             <TableColumn prefWidth="386.0" text="Duration" />
         </columns>
       </TableView>
-      <JFXButton fx:id="btnAdd" layoutX="1073.0" layoutY="390.0" onAction="#addOnAction" text="add" />
-      <JFXButton fx:id="btnUpdate" layoutX="1207.0" layoutY="390.0" onAction="#updateOnAction" text="update" />
-      <JFXButton fx:id="btnDelete" layoutX="1340.0" layoutY="390.0" onAction="#deleteOnAction" text="Delete" />
+      <JFXButton fx:id="btnAdd" buttonType="RAISED" layoutX="889.0" layoutY="377.0" onAction="#addOnAction" prefHeight="58.0" prefWidth="184.0" style="-fx-background-color: #16a085;" text="Add">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btnUpdate" layoutX="1123.0" layoutY="377.0" onAction="#updateOnAction" prefHeight="58.0" prefWidth="184.0" style="-fx-background-color: #2980b9;" text="update">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btnDelete" layoutX="1354.0" layoutY="377.0" onAction="#deleteOnAction" prefHeight="58.0" prefWidth="184.0" style="-fx-background-color: #e74c3c;" text="Delete">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></JFXButton>
       <JFXTextField fx:id="txtProgramName" focusColor="#752003" labelFloat="true" layoutX="53.0" layoutY="277.0" onAction="#programNameOnAction" prefHeight="52.0" prefWidth="561.0" promptText="Program Name">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtDuration" focusColor="#752003" layoutX="697.0" layoutY="277.0" onAction="#durationOnAction" prefHeight="52.0" prefWidth="376.0" promptText="Duration">
+      <JFXTextField fx:id="txtDuration" focusColor="#752003" labelFloat="true" layoutX="697.0" layoutY="277.0" onAction="#durationOnAction" prefHeight="52.0" prefWidth="376.0" promptText="Duration">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtFee" focusColor="#752003" layoutX="1162.0" layoutY="277.0" onAction="#feeOnAction" prefHeight="52.0" prefWidth="376.0" promptText="Fee (LKR)">
+      <JFXTextField fx:id="txtFee" focusColor="#752003" labelFloat="true" layoutX="1162.0" layoutY="277.0" onAction="#feeOnAction" prefHeight="52.0" prefWidth="376.0" promptText="Fee (LKR)">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
