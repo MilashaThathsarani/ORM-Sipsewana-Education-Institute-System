@@ -2,6 +2,7 @@ package bo.custom;
 
 import bo.SuperBO;
 import dto.StudentDTO;
+import view.tm.StudentTM;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public interface StudentBO extends SuperBO {
 
     //boolean deleteCustomer(String id) throws SQLException, ClassNotFoundException;
 
-   // ArrayList<CustomerTm> getAll() throws SQLException, ClassNotFoundException;
+    ArrayList<StudentTM> getAll() throws SQLException, ClassNotFoundException;
 
     //int customers() throws SQLException, ClassNotFoundException;
 }

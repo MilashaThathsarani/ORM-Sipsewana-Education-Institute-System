@@ -5,8 +5,10 @@ import dao.DAOFactory;
 import dao.custom.StudentDAO;
 import dto.StudentDTO;
 import entity.Student;
+import view.tm.StudentTM;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class StudentBOImpl implements StudentBO {
 
@@ -57,6 +59,16 @@ public class StudentBOImpl implements StudentBO {
                 studentDTO.getGender(),
                 studentDTO.getPhoneNumber(),
                 studentDTO.getEducation()));
+    }
+
+    @Override
+    public ArrayList<StudentTM> getAll() throws SQLException, ClassNotFoundException {
+        ArrayList<Student> all = studentDAO.getAll();
+        ArrayList<StudentTM> allStudents = new ArrayList<>();
+        for (Student student : all) {
+            allStudents.add(new StudentTM(student.getStudentId(),student.getStudentName(),student.getAddress(),student.getBirthday(),student.getAge(),student.getGender(),student.getPhoneNumber(),student.getEducation()));
+        }
+        return allStudents;
     }
 }
 

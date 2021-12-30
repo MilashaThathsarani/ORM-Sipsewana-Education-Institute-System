@@ -4,10 +4,12 @@ import dao.custom.StudentDAO;
 import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import util.FactoryConfiguration;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentDAOImpl implements StudentDAO {
 
@@ -59,7 +61,18 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public ArrayList getAll() throws SQLException, ClassNotFoundException {
-        return null;
+    public ArrayList <Student> getAll() throws SQLException, ClassNotFoundException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        List<Student> list = null;
+
+        Query students = session.createQuery("from Student");
+        list = students.list();
+
+        transaction.commit();
+
+        session.close();
+        return (ArrayList<Student>) list;
     }
 }

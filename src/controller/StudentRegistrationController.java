@@ -10,13 +10,18 @@ import entity.Student;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Duration;
+import view.tm.StudentTM;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class StudentRegistrationController {
@@ -32,7 +37,7 @@ public class StudentRegistrationController {
     public JFXButton btnAdd;
     public JFXButton btnUpdate;
     public JFXButton btnDelete;
-    public TableView tblStudent;
+    public TableView<StudentTM> tblStudent;
     public TableColumn colStudentId;
     public TableColumn colFullName;
     public TableColumn colAddress;
@@ -47,7 +52,16 @@ public class StudentRegistrationController {
     public JFXTextField txtEducation;
     public JFXTextField txtBirthDay;
 
-    public void initialize(){
+    public void initialize() throws SQLException, ClassNotFoundException {
+
+        colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+        colFullName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        coBirthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
+        colAge.setCellValueFactory(new PropertyValueFactory<>("age"));
+        colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        colPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        colEducation.setCellValueFactory(new PropertyValueFactory<>("education"));
 
         loadDateAndTime();
 
@@ -55,11 +69,17 @@ public class StudentRegistrationController {
                 "Male",
                 "Female");
         
-        setItemsToTable();
+        setItemsToTable(studentBO.getAll());
 
     }
 
-    private void setItemsToTable() {
+    private void setItemsToTable(ArrayList<StudentTM> student) {
+        ObservableList<StudentTM> obList = FXCollections.observableArrayList();
+        student.forEach(e -> {
+            obList.add(
+                    new StudentTM(e.getStudentId(),e.getStudentName(),e.getAddress(),e.getBirthday(),e.getAge(),e.getGender(),e.getPhoneNumber(),e.getEducation()));
+        });
+        tblStudent.setItems(obList);
     }
 
     public void idOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
