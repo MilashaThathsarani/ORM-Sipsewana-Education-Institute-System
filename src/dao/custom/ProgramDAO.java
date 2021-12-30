@@ -1,7 +1,7 @@
 package dao.custom;
 
 import dao.SuperDAO;
-import entity.Student;
+import entity.Program;
 
-public interface ProgramDAO extends SuperDAO<Student,String> {
+public interface ProgramDAO extends SuperDAO<Program,String> {
 }

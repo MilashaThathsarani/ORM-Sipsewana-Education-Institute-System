@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Program {
+public class Program implements SuperEntity {
     @Id
     private String programId;
     private String programName;

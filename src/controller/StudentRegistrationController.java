@@ -1,6 +1,7 @@
 package controller;
 
 import bo.BoFactory;
+import bo.custom.ProgramBO;
 import bo.custom.StudentBO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -53,7 +54,12 @@ public class StudentRegistrationController {
         cmbGender.getItems().addAll(
                 "Male",
                 "Female");
+        
+        setItemsToTable();
 
+    }
+
+    private void setItemsToTable() {
     }
 
     public void idOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {

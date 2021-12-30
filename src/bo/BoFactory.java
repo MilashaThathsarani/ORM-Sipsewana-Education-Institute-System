@@ -1,8 +1,11 @@
 package bo;
 
+
+import bo.custom.impl.ProgramBOImpl;
 import bo.custom.impl.StudentBOImpl;
 
 public class BoFactory {
+   // public static BoFactory getBOFactory;
     private static BoFactory boFactory;
 
     private BoFactory() {
@@ -19,9 +22,9 @@ public class BoFactory {
         switch (types) {
             case STUDENT:
                 return new StudentBOImpl();
-            /*case CUSTOMER:
-                return new CustomerBOImpl();
-            case PURCHASE_ORDER:
+            case PROGRAM:
+                return new ProgramBOImpl();
+            /*case PURCHASE_ORDER:
                 return new PurchaseOrderBOImpl();
             case ORDER_DETAIL:
                 return new OrderDetailBOImpl();*/
@@ -31,6 +34,6 @@ public class BoFactory {
     }
 
     public enum BoTypes {
-        STUDENT
+        STUDENT , PROGRAM
     }
 }

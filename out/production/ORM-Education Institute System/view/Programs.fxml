@@ -5,13 +5,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProgramsController">
+<AnchorPane prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProgramController">
    <children>
       <AnchorPane prefHeight="110.0" prefWidth="1600.0" style="-fx-background-color: #ff7675;">
          <children>
@@ -39,11 +38,6 @@
             <Label fx:id="txtTime" layoutX="1211.0" layoutY="28.0" prefHeight="52.0" prefWidth="228.0" />
             <JFXButton fx:id="btnBack" layoutX="1488.0" layoutY="39.0" onAction="#backOnAction" prefHeight="36.0" prefWidth="72.0" text="Back" />
          </children></AnchorPane>
-      <TextField fx:id="txtProgramName" layoutX="53.0" layoutY="277.0" onAction="#programNameOnAction" prefHeight="52.0" prefWidth="594.0" promptText="Program Name">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
       <Label layoutX="53.0" layoutY="175.0" text="Programme Id :">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -55,16 +49,6 @@
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <TextField fx:id="txtDuration" layoutX="709.0" layoutY="277.0" onAction="#durationOnAction" prefHeight="52.0" prefWidth="387.0" promptText="Duration">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtFee" layoutX="1156.0" layoutY="277.0" onAction="#feeOnAction" prefHeight="52.0" prefWidth="387.0" promptText="Fee (LKR)">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
       <TableView fx:id="tblProgram" layoutX="47.0" layoutY="462.0" prefHeight="527.0" prefWidth="1491.0">
         <columns>
           <TableColumn fx:id="colProgramId" prefWidth="226.0" text="Program Id" />
@@ -77,5 +61,20 @@
       <JFXButton fx:id="btnAdd" layoutX="1073.0" layoutY="390.0" onAction="#addOnAction" text="add" />
       <JFXButton fx:id="btnUpdate" layoutX="1207.0" layoutY="390.0" onAction="#updateOnAction" text="update" />
       <JFXButton fx:id="btnDelete" layoutX="1340.0" layoutY="390.0" onAction="#deleteOnAction" text="Delete" />
+      <JFXTextField fx:id="txtProgramName" focusColor="#752003" labelFloat="true" layoutX="53.0" layoutY="277.0" onAction="#programNameOnAction" prefHeight="52.0" prefWidth="561.0" promptText="Program Name">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtDuration" focusColor="#752003" layoutX="697.0" layoutY="277.0" onAction="#durationOnAction" prefHeight="52.0" prefWidth="376.0" promptText="Duration">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtFee" focusColor="#752003" layoutX="1162.0" layoutY="277.0" onAction="#feeOnAction" prefHeight="52.0" prefWidth="376.0" promptText="Fee (LKR)">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXTextField>
    </children>
 </AnchorPane>

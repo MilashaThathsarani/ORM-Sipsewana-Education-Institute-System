@@ -1,7 +1,8 @@
 package dao.custom.impl;
 
+import dao.SuperDAO;
 import dao.custom.ProgramDAO;
-import entity.Student;
+import entity.Program;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.FactoryConfiguration;
@@ -11,11 +12,11 @@ import java.util.ArrayList;
 
 public class ProgramDAOImpl implements ProgramDAO {
     @Override
-    public boolean add(Student student) throws SQLException, ClassNotFoundException {
+    public boolean add(Program program) throws SQLException, ClassNotFoundException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        session.save(student);
+        session.save(program);
 
         transaction.commit();
         session.close();
@@ -28,17 +29,17 @@ public class ProgramDAOImpl implements ProgramDAO {
     }
 
     @Override
-    public boolean update(Student t) throws SQLException, ClassNotFoundException {
+    public boolean update(Program t) throws SQLException, ClassNotFoundException {
         return false;
     }
 
     @Override
-    public Student search(String s) throws SQLException, ClassNotFoundException {
+    public Program search(String s) throws SQLException, ClassNotFoundException {
         return null;
     }
 
     @Override
-    public ArrayList<Student> getAll() throws SQLException, ClassNotFoundException {
+    public ArrayList<Program> getAll() throws SQLException, ClassNotFoundException {
         return null;
     }
 }
