@@ -46,6 +46,11 @@ public class ProgramBOImpl implements ProgramBO {
     }
 
     @Override
+    public boolean delete(String programId) throws SQLException, ClassNotFoundException {
+        return programDAO.delete(programId);
+    }
+
+    @Override
     public ArrayList<ProgramTM> getAll() throws SQLException, ClassNotFoundException {
         ArrayList<Program> all = programDAO.getAll();
         ArrayList<ProgramTM> allPrograms = new ArrayList<>();

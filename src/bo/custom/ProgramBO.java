@@ -19,7 +19,7 @@ public interface ProgramBO extends SuperBO {
 
     boolean update(ProgramDTO programDTO) throws SQLException, ClassNotFoundException;
 
-    //boolean deleteCustomer(String id) throws SQLException, ClassNotFoundException;
+    boolean delete(String programId) throws SQLException, ClassNotFoundException;
 
     ArrayList<ProgramTM> getAll() throws SQLException, ClassNotFoundException;
 

@@ -117,7 +117,13 @@ public class ProgramController {
         }
     }
 
-    public void deleteOnAction(ActionEvent actionEvent) {
+    public void deleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        if (programBO.delete(txtId.getText())) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Deleted").show();
+            setItemsToTable(programBO.getAll());
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Try Again").show();
+        }
     }
 
     private void setItemsToTable(ArrayList<ProgramTM> program) {
