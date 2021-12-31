@@ -62,6 +62,11 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
+    public boolean delete(String studentId) throws SQLException, ClassNotFoundException {
+        return studentDAO.delete(studentId);
+    }
+
+    @Override
     public ArrayList<StudentTM> getAll() throws SQLException, ClassNotFoundException {
         ArrayList<Student> all = studentDAO.getAll();
         ArrayList<StudentTM> allStudents = new ArrayList<>();

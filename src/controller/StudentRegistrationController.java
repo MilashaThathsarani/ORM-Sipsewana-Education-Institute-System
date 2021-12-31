@@ -171,7 +171,13 @@ public class StudentRegistrationController {
         }
     }
 
-    public void deleteOnAction(ActionEvent actionEvent) {
+    public void deleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        if (studentBO.delete(txtId.getText())) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Deleted").show();
+            setItemsToTable(studentBO.getAll());
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Try Again").show();
+        }
     }
 
     private void setData(StudentDTO s) {
