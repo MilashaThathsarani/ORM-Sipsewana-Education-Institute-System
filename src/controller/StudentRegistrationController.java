@@ -164,6 +164,7 @@ public class StudentRegistrationController {
 
         if (studentBO.update(studentDTO)) {
             new Alert(Alert.AlertType.CONFIRMATION, "Updated..").show();
+            setItemsToTable(studentBO.getAll());
        } else {
             new Alert(Alert.AlertType.WARNING, "Try Again").show();
 
@@ -177,7 +178,7 @@ public class StudentRegistrationController {
        txtId.setText(s.getStudentId());
        txtFullName.setText(s.getStudentName());
        txtAddress.setText(s.getAddress());
-       txtBirthDay.setText(s.getBirthday());
+       //txtBirthDay.setText(s.getBirthday());
        txtAge.setText(String.valueOf(s.getAge()));
        //cmbGender.setValue(s.getGender());
        txtPhoneNumber.setText(s.getPhoneNumber());

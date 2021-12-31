@@ -47,7 +47,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtId" focusColor="#752003" layoutX="212.0" layoutY="149.0" prefHeight="52.0" prefWidth="219.0" />
+      <JFXTextField fx:id="txtId" focusColor="#752003" layoutX="212.0" layoutY="149.0" onAction="#idOnAction" prefHeight="52.0" prefWidth="219.0" />
       <JFXTextField fx:id="txtSearch" focusColor="#752003" labelFloat="true" layoutX="1207.0" layoutY="138.0" prefHeight="52.0" prefWidth="266.0" promptText="Search">
          <font>
             <Font name="System Bold" size="18.0" />

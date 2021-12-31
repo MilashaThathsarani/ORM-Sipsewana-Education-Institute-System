@@ -100,7 +100,21 @@ public class ProgramController {
         }
     }
 
-    public void updateOnAction(ActionEvent actionEvent) {
+    public void updateOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        String programId =  txtId.getText();
+        String programName = txtProgramName.getText();
+        String duration = txtDuration.getText();
+        double fee = Double.parseDouble(txtFee.getText());
+
+        ProgramDTO programDTO = new ProgramDTO(programId,programName,duration,fee);
+
+        if (programBO.update(programDTO)) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Updated..").show();
+            setItemsToTable(programBO.getAll());
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Try Again").show();
+
+        }
     }
 
     public void deleteOnAction(ActionEvent actionEvent) {
@@ -130,5 +144,23 @@ public class ProgramController {
     }
 
     public void feeOnAction(ActionEvent actionEvent) {
+    }
+
+    public void idOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        String programId = txtId.getText();
+
+        ProgramDTO programDTO = programBO.searchProgram(programId);
+        if (programDTO == null) {
+            new Alert(Alert.AlertType.WARNING, "Empty Result Set").show();
+        } else {
+            setData(programDTO);
+        }
+    }
+
+    private void setData(ProgramDTO p) {
+        txtId.setText(p.getProgramId());
+        txtProgramName.setText(p.getProgramName());
+        txtDuration.setText(p.getDuration());
+        txtFee.setText(String.valueOf(p.getFee()));
     }
 }

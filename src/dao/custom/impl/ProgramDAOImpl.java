@@ -32,13 +32,29 @@ public class ProgramDAOImpl implements ProgramDAO {
     }
 
     @Override
-    public boolean update(Program t) throws SQLException, ClassNotFoundException {
-        return false;
+    public boolean update(Program program) throws SQLException, ClassNotFoundException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        session.update(program);
+
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override
-    public Program search(String s) throws SQLException, ClassNotFoundException {
-        return null;
+    public Program search(String programId) throws SQLException, ClassNotFoundException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        List<Program> list = null;
+        String hql = "FROM Program P WHERE P.programId = :programId";
+        Query query = session.createQuery(hql).setString("programId", programId);
+        list = query.getResultList();
+
+        transaction.commit();
+        return  list.get(0);
     }
 
     @Override

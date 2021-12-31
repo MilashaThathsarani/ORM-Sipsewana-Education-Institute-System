@@ -11,13 +11,13 @@ import java.util.ArrayList;
 public interface ProgramBO extends SuperBO {
     //String getCustomerIds() throws SQLException, ClassNotFoundException;
 
-    //ProgramDTO searchProgram(String programId) throws SQLException, ClassNotFoundException;
+    ProgramDTO searchProgram(String programId) throws SQLException, ClassNotFoundException;
 
     boolean add(ProgramDTO programDTO) throws SQLException, ClassNotFoundException;
 
     //boolean ifStudentExist(String studentId);
 
-    //boolean update(StudentDTO studentDTO) throws SQLException, ClassNotFoundException;
+    boolean update(ProgramDTO programDTO) throws SQLException, ClassNotFoundException;
 
     //boolean deleteCustomer(String id) throws SQLException, ClassNotFoundException;
 
