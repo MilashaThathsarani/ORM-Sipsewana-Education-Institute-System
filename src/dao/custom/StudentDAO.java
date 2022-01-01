@@ -5,6 +5,9 @@ import dao.SuperDAO;
 import dto.StudentDTO;
 import entity.Student;
 
+import java.sql.SQLException;
+
 public interface StudentDAO extends SuperDAO<Student,String> {
+    //public String getStudentIds() throws SQLException,ClassNotFoundException;
 
 }

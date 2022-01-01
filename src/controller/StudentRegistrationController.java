@@ -76,6 +76,13 @@ public class StudentRegistrationController {
                 "Female");
         
         setItemsToTable(studentBO.getAll());
+        
+        setStudentId();
+
+    }
+
+    private void setStudentId() {
+        //txtId.setText(new );
 
     }
 

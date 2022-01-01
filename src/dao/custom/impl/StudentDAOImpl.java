@@ -4,9 +4,11 @@ import dao.custom.StudentDAO;
 import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import util.FactoryConfiguration;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -81,4 +83,27 @@ public class StudentDAOImpl implements StudentDAO {
         session.close();
         return (ArrayList<Student>) list;
     }
+
+    /*@Override
+    public String getStudentIds() throws SQLException, ClassNotFoundException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+
+        ResultSet rst = null;
+        NativeQuery sqlQuery = session.createSQLQuery("SELECT custId FROM Customer ORDER BY custId DESC LIMIT 1");
+        if (rst.next()) {
+            int tempId = Integer.
+                    parseInt(rst.getString("custId").split("-")[1]);
+            tempId = tempId + 1;
+            if (tempId <= 9) {
+                return "C-00" + tempId;
+            } else if (tempId <= 99) {
+                return "C-0" + tempId;
+            } else {
+                return "C-" + tempId;
+            }
+
+        } else {
+            return "C-001";
+        }
+    }*/
 }
