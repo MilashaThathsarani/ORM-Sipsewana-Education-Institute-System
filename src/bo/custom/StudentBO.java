@@ -8,17 +8,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface StudentBO extends SuperBO {
-    //String getCustomerIds() throws SQLException, ClassNotFoundException;
+    public ArrayList<StudentDTO> getStudentIds() throws SQLException, ClassNotFoundException;
 
     StudentDTO searchStudent(String studentId) throws SQLException, ClassNotFoundException;
 
-    boolean add(StudentDTO studentDTO) throws SQLException, ClassNotFoundException;
+    boolean addStudent(StudentDTO studentDTO) throws SQLException, ClassNotFoundException;
 
     boolean ifStudentExist(String studentId);
 
-    boolean update(StudentDTO studentDTO) throws SQLException, ClassNotFoundException;
+    boolean updateStudent(StudentDTO studentDTO) throws SQLException, ClassNotFoundException;
 
-    boolean delete(String studentId) throws SQLException, ClassNotFoundException;
+    boolean deleteStudent(String studentId) throws SQLException, ClassNotFoundException;
 
     ArrayList<StudentTM> getAll() throws SQLException, ClassNotFoundException;
 

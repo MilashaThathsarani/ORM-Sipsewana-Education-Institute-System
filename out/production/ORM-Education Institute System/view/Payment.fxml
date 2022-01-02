@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PaymentController">
+<AnchorPane fx:id="paymentContext" prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PaymentController">
    <children>
       <AnchorPane prefHeight="110.0" prefWidth="1600.0" style="-fx-background-color: #ff7675;">
          <children>
@@ -40,94 +40,108 @@
             <Label fx:id="txtTime" layoutX="1193.0" layoutY="29.0" prefHeight="52.0" prefWidth="228.0" />
             <JFXButton fx:id="btnBack" layoutX="1492.0" layoutY="37.0" onAction="#backOnAction" prefHeight="36.0" prefWidth="72.0" text="Back" />
          </children></AnchorPane>
-      <TableView layoutX="51.0" layoutY="594.0" prefHeight="383.0" prefWidth="1127.0">
+      <TableView fx:id="tblList" layoutX="27.0" layoutY="671.0" prefHeight="312.0" prefWidth="1107.0">
         <columns>
           <TableColumn prefWidth="75.0" />
           <TableColumn prefWidth="75.0" text="C2" />
         </columns>
       </TableView>
-      <Label layoutX="55.0" layoutY="200.0" text="Students Details : -" textFill="#860a0a">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="51.0" layoutY="470.0" text="Programs Details : -" textFill="#860a0a">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <AnchorPane layoutX="1190.0" layoutY="587.0" prefHeight="383.0" prefWidth="396.0">
+      <AnchorPane layoutX="1158.0" layoutY="671.0" prefHeight="312.0" prefWidth="417.0" style="-fx-background-color: #ffcccc;">
          <children>
-            <JFXButton layoutX="58.0" layoutY="14.0" prefHeight="52.0" prefWidth="305.0" style="-fx-background-color: gray;" text="Add" />
-            <Label layoutX="58.0" layoutY="135.0" text="Total  : -">
+            <JFXButton buttonType="RAISED" layoutX="58.0" layoutY="14.0" onAction="#addToTableOnAction" prefHeight="52.0" prefWidth="305.0" style="-fx-background-color: #ff7675;" text="Add To Cart" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></JFXButton>
+            <Label layoutX="58.0" layoutY="103.0" text="Total  : -">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <JFXButton layoutX="58.0" layoutY="296.0" prefHeight="52.0" prefWidth="305.0" style="-fx-background-color: gray;" text="Add" />
-            <Label layoutX="58.0" layoutY="180.0" prefHeight="58.0" prefWidth="305.0" />
+            <JFXButton buttonType="RAISED" layoutX="58.0" layoutY="246.0" onAction="#confirmOnAction" prefHeight="52.0" prefWidth="305.0" style="-fx-background-color: #860a0a;" text="Confirm" textFill="#f5f5f5">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></JFXButton>
+            <Label fx:id="lblTotal" layoutX="58.0" layoutY="133.0" prefHeight="71.0" prefWidth="305.0" />
          </children>
       </AnchorPane>
-      <Label layoutX="55.0" layoutY="135.0" text="REGISTER NO : -">
+      <Label layoutX="21.0" layoutY="135.0" text="REGISTER NO : -">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <TextField alignment="CENTER" layoutX="241.0" layoutY="125.0" prefHeight="52.0" prefWidth="228.0">
+      <TextField fx:id="txtRegisterId" alignment="CENTER" layoutX="241.0" layoutY="125.0" prefHeight="52.0" prefWidth="228.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></TextField>
-      <JFXComboBox focusColor="#860a0a" layoutX="55.0" layoutY="238.0" prefHeight="52.0" prefWidth="228.0" promptText="Student Id" />
-      <JFXTextField focusColor="#860a0a" labelFloat="true" layoutX="331.0" layoutY="250.0" prefHeight="40.0" prefWidth="559.0" promptText="Student Name">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField focusColor="#860a0a" labelFloat="true" layoutX="944.0" layoutY="250.0" prefHeight="40.0" prefWidth="608.0" promptText="Address">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField focusColor="#860a0a" labelFloat="true" layoutX="51.0" layoutY="325.0" prefHeight="40.0" prefWidth="294.0" promptText="Birth Day">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField focusColor="#860a0a" labelFloat="true" layoutX="402.0" layoutY="325.0" prefHeight="40.0" prefWidth="250.0" promptText="Age">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField focusColor="#860a0a" labelFloat="true" layoutX="718.0" layoutY="325.0" prefHeight="40.0" prefWidth="305.0" promptText="Gender">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField focusColor="#860a0a" labelFloat="true" layoutX="1100.0" layoutY="325.0" prefHeight="40.0" prefWidth="360.0" promptText="Phone Number">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField focusColor="#860a0a" labelFloat="true" layoutX="51.0" layoutY="404.0" prefHeight="40.0" prefWidth="608.0" promptText="Education">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </JFXTextField>
-      <JFXComboBox focusColor="#860a0a" layoutX="51.0" layoutY="519.0" prefHeight="40.0" prefWidth="228.0" promptText="Program Id" />
-      <JFXTextField focusColor="#860a0a" labelFloat="true" layoutX="331.0" layoutY="519.0" prefHeight="40.0" prefWidth="520.0" promptText="Program Name">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField focusColor="#860a0a" labelFloat="true" layoutX="909.0" layoutY="519.0" prefHeight="40.0" prefWidth="294.0" promptText="Duration">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField focusColor="#860a0a" labelFloat="true" layoutX="1248.0" layoutY="519.0" prefHeight="40.0" prefWidth="305.0" promptText="Fee (LKR)">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </JFXTextField>
+      <AnchorPane layoutX="27.0" layoutY="197.0" prefHeight="312.0" prefWidth="1547.0" style="-fx-background-color: #ffcccc;">
+         <children>
+            <Label layoutY="-1.0" text="Students Details : -" textFill="#860a0a">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="cmbStudentId" focusColor="#860a0a" layoutX="27.0" layoutY="47.0" prefHeight="52.0" prefWidth="228.0" promptText="Student Id" />
+            <JFXTextField fx:id="txtStudentName" focusColor="#860a0a" labelFloat="true" layoutX="305.0" layoutY="56.0" prefHeight="40.0" prefWidth="559.0" promptText="Student Name" unFocusColor="#860a0a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtAddress" focusColor="#860a0a" labelFloat="true" layoutX="912.0" layoutY="56.0" prefHeight="40.0" prefWidth="608.0" promptText="Address" unFocusColor="#860a0a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtEducation" focusColor="#860a0a" labelFloat="true" layoutX="27.0" layoutY="236.0" prefHeight="40.0" prefWidth="608.0" promptText="Education" unFocusColor="#860a0a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtBirthday" focusColor="#860a0a" labelFloat="true" layoutX="27.0" layoutY="141.0" prefHeight="40.0" prefWidth="294.0" promptText="Birth Day" unFocusColor="#860a0a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtAge" focusColor="#860a0a" labelFloat="true" layoutX="385.0" layoutY="141.0" prefHeight="40.0" prefWidth="250.0" promptText="Age" unFocusColor="#860a0a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtGender" focusColor="#860a0a" labelFloat="true" layoutX="695.0" layoutY="141.0" prefHeight="40.0" prefWidth="305.0" promptText="Gender" unFocusColor="#860a0a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtPhoneNumber" focusColor="#860a0a" labelFloat="true" layoutX="1065.0" layoutY="141.0" prefHeight="40.0" prefWidth="360.0" promptText="Phone Number" unFocusColor="#860a0a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="27.0" layoutY="523.0" prefHeight="135.0" prefWidth="1547.0" style="-fx-background-color: #ffcccc;">
+         <children>
+            <Label layoutY="-1.0" text="Programs Details : -" textFill="#860a0a">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="cmbProgramId" focusColor="#860a0a" layoutX="34.0" layoutY="60.0" prefHeight="40.0" prefWidth="228.0" promptText="Program Id" />
+            <JFXTextField fx:id="txtProgramName" focusColor="#860a0a" labelFloat="true" layoutX="303.0" layoutY="60.0" prefHeight="40.0" prefWidth="520.0" promptText="Program Name" unFocusColor="#860a0a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtDuration" focusColor="#860a0a" labelFloat="true" layoutX="879.0" layoutY="60.0" prefHeight="40.0" prefWidth="294.0" promptText="Duration" unFocusColor="#860a0a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtFee" focusColor="#860a0a" labelFloat="true" layoutX="1218.0" layoutY="60.0" prefHeight="40.0" prefWidth="305.0" promptText="Fee (LKR)" unFocusColor="#860a0a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

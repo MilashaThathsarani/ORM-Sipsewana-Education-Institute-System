@@ -1,0 +1,63 @@
+package bo.custom.impl;
+
+import bo.custom.RegisterBO;
+import dao.DAOFactory;
+import dao.custom.ProgramDAO;
+import dao.custom.RegisterDAO;
+import dao.custom.StudentDAO;
+import dto.ProgramDTO;
+import dto.StudentDTO;
+import entity.Program;
+import entity.Student;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class RegisterBOImpl implements RegisterBO {
+
+    private final StudentDAO studentDAO = (StudentDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
+    private final ProgramDAO programDAO = (ProgramDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.PROGRAM);
+    private final RegisterDAO registerDAO = (RegisterDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.REGISTER);
+    @Override
+    public StudentDTO searchStudents(String studentId) throws SQLException, ClassNotFoundException {
+        Student student = studentDAO.search(studentId);
+        return new StudentDTO(student.getStudentId(),
+                student.getStudentName(),
+                student.getAddress(),
+                student.getBirthday(),
+                student.getAge(),
+                student.getGender(),
+                student.getPhoneNumber(),
+                student.getEducation());
+    }
+
+    @Override
+    public ProgramDTO searchPrograms(String programId) throws SQLException, ClassNotFoundException {
+        Program program = programDAO.search(programId);
+        return new ProgramDTO(program.getProgramId(),
+                program.getProgramName(),
+                program.getDuration(),
+                program.getFee());
+    }
+
+    @Override
+    public List<String> getAllStudentIds() throws SQLException, ClassNotFoundException {
+        List <String> studentIds = new ArrayList<>();
+        List<Student> allStudents =studentDAO.getAll();
+        for (Student student : allStudents){
+            studentIds.add(student.getStudentId());
+        }
+        return studentIds;
+    }
+
+    @Override
+    public List<String> getAllProgramIds() throws SQLException, ClassNotFoundException {
+        List <String> programIds = new ArrayList<>();
+        List<Program> allProgram = programDAO.getAll();
+        for (Program program : allProgram){
+            programIds.add(program.getProgramId());
+        }
+        return programIds;
+    }
+}

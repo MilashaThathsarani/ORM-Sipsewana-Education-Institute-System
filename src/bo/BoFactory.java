@@ -1,6 +1,7 @@
 package bo;
 
 
+import bo.custom.impl.RegisterBOImpl;
 import bo.custom.impl.ProgramBOImpl;
 import bo.custom.impl.StudentBOImpl;
 
@@ -24,9 +25,9 @@ public class BoFactory {
                 return new StudentBOImpl();
             case PROGRAM:
                 return new ProgramBOImpl();
-            /*case PURCHASE_ORDER:
-                return new PurchaseOrderBOImpl();
-            case ORDER_DETAIL:
+            case REGISTER:
+                return new RegisterBOImpl();
+            /*case ORDER_DETAIL:
                 return new OrderDetailBOImpl();*/
             default:
                 return null;
@@ -34,6 +35,6 @@ public class BoFactory {
     }
 
     public enum BoTypes {
-        STUDENT , PROGRAM
+        STUDENT , PROGRAM , REGISTER
     }
 }

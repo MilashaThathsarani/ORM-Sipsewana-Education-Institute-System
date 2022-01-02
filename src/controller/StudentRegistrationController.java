@@ -119,7 +119,7 @@ public class StudentRegistrationController {
                 new Alert(Alert.AlertType.ERROR, studentId + " already exists").show();
             } else {
                 StudentDTO studentDTO = new StudentDTO(studentId,studentName,address,birthday,age,gender,phoneNumber,education);
-                studentBO.add(studentDTO);
+                studentBO.addStudent(studentDTO);
 
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved..").show();
                 setItemsToTable(studentBO.getAll());
@@ -169,7 +169,7 @@ public class StudentRegistrationController {
 
         StudentDTO studentDTO = new StudentDTO(studentId,studentName,address,birthday,age,gender,phoneNumber,education);
 
-        if (studentBO.update(studentDTO)) {
+        if (studentBO.updateStudent(studentDTO)) {
             new Alert(Alert.AlertType.CONFIRMATION, "Updated..").show();
             setItemsToTable(studentBO.getAll());
        } else {
@@ -179,7 +179,7 @@ public class StudentRegistrationController {
     }
 
     public void deleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        if (studentBO.delete(txtId.getText())) {
+        if (studentBO.deleteStudent(txtId.getText())) {
             new Alert(Alert.AlertType.CONFIRMATION, "Deleted").show();
             setItemsToTable(studentBO.getAll());
         } else {

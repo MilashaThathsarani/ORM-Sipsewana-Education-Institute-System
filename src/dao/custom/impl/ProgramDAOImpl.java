@@ -2,6 +2,7 @@ package dao.custom.impl;
 
 import dao.SuperDAO;
 import dao.custom.ProgramDAO;
+import dto.ProgramDTO;
 import entity.Program;
 import entity.Student;
 import org.hibernate.Session;
@@ -9,6 +10,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import util.FactoryConfiguration;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +65,7 @@ public class ProgramDAOImpl implements ProgramDAO {
         list = query.getResultList();
 
         transaction.commit();
-        return  list.get(0);
+        return list.get(0);
     }
 
     @Override
@@ -81,4 +83,21 @@ public class ProgramDAOImpl implements ProgramDAO {
         session.close();
         return (ArrayList<Program>) list;
     }
+
+    @Override
+    public ArrayList<ProgramDTO> getAllProgramIds() throws SQLException, ClassNotFoundException {
+       return null;
+    }
+
+   /* @Override
+    public List getAllProgramIds() throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.executeQuery("SELECT * FROM Customer");
+        List<String> ids = new ArrayList<>();
+        while (rst.next()) {
+            ids.add(
+                    rst.getString("custId")
+            );
+        }
+        return ids;
+    }*/
 }

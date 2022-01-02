@@ -9,10 +9,17 @@ import view.tm.StudentTM;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentBOImpl implements StudentBO {
 
     private final StudentDAO studentDAO = (StudentDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
+
+    @Override
+    public ArrayList<StudentDTO> getStudentIds() throws SQLException, ClassNotFoundException {
+        return null;
+
+    }
 
     @Override
     public StudentDTO searchStudent(String studentId) throws SQLException, ClassNotFoundException {
@@ -30,7 +37,7 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public boolean add(StudentDTO studentDTO) throws SQLException, ClassNotFoundException {
+    public boolean addStudent(StudentDTO studentDTO) throws SQLException, ClassNotFoundException {
         return studentDAO.add(new Student(
                 studentDTO.getStudentId(),
                 studentDTO.getStudentName(),
@@ -49,7 +56,7 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public boolean update(StudentDTO studentDTO) throws SQLException, ClassNotFoundException {
+    public boolean updateStudent(StudentDTO studentDTO) throws SQLException, ClassNotFoundException {
         return studentDAO.update(new Student(
                 studentDTO.getStudentId(),
                 studentDTO.getStudentName(),
@@ -62,7 +69,7 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public boolean delete(String studentId) throws SQLException, ClassNotFoundException {
+    public boolean deleteStudent(String studentId) throws SQLException, ClassNotFoundException {
         return studentDAO.delete(studentId);
     }
 

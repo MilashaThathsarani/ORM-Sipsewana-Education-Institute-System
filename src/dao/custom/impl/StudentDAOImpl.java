@@ -1,6 +1,7 @@
 package dao.custom.impl;
 
 import dao.custom.StudentDAO;
+import dto.StudentDTO;
 import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -82,6 +83,11 @@ public class StudentDAOImpl implements StudentDAO {
 
         session.close();
         return (ArrayList<Student>) list;
+    }
+
+    @Override
+    public ArrayList<StudentDTO> getAllStudentIds() throws SQLException, ClassNotFoundException {
+        return null;
     }
 
     /*@Override

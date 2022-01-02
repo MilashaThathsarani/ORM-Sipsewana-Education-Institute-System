@@ -73,14 +73,4 @@ public class Program implements SuperEntity {
         this.studentList = studentList;
     }
 
-    @Override
-    public String toString() {
-        return "Program{" +
-                "programId='" + programId + '\'' +
-                ", programName='" + programName + '\'' +
-                ", duration='" + duration + '\'' +
-                ", fee=" + fee +
-                ", studentList=" + studentList +
-                '}';
-    }
 }
