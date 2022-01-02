@@ -60,6 +60,17 @@ public class StudentRegistrationController {
 
     public void initialize() throws SQLException, ClassNotFoundException {
 
+
+        colStudentId.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        colFullName.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        colAddress.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        coBirthday.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        colAge.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        colGender.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        colPhoneNumber.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        colEducation.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+
+
         colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
         colFullName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
@@ -216,9 +227,6 @@ public class StudentRegistrationController {
         cmbGender.requestFocus();
     }
 
-    public void genderOnaction(ActionEvent actionEvent) {
-        txtPhoneNumber.requestFocus();
-    }
 
     public void birthDayOnAction(ActionEvent actionEvent) {
         txtAge.requestFocus();
@@ -231,4 +239,7 @@ public class StudentRegistrationController {
     public void educationOnAction(ActionEvent actionEvent) {
     }
 
+    public void genderOnAction(ActionEvent actionEvent) {
+        txtPhoneNumber.requestFocus();
+    }
 }

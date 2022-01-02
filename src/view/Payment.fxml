@@ -40,10 +40,14 @@
             <Label fx:id="txtTime" layoutX="1193.0" layoutY="29.0" prefHeight="52.0" prefWidth="228.0" />
             <JFXButton fx:id="btnBack" layoutX="1492.0" layoutY="37.0" onAction="#backOnAction" prefHeight="36.0" prefWidth="72.0" text="Back" />
          </children></AnchorPane>
-      <TableView fx:id="tblList" layoutX="27.0" layoutY="671.0" prefHeight="312.0" prefWidth="1107.0">
+      <TableView fx:id="tblList" layoutX="27.0" layoutY="671.0" prefHeight="312.0" prefWidth="1107.0" stylesheets="@styles/StudentForm.css">
         <columns>
-          <TableColumn prefWidth="75.0" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="colRegisterId" prefWidth="120.0" text="Register Id" />
+          <TableColumn fx:id="colStudentId" prefWidth="120.0" text="Student Id" />
+            <TableColumn fx:id="colProgramId" prefWidth="120.0" text="Program Id" />
+            <TableColumn fx:id="colStudentName" prefWidth="298.0" text="Student Name" />
+            <TableColumn fx:id="colProgramName" prefWidth="276.0" text="Program Name" />
+            <TableColumn fx:id="colPayment" prefWidth="172.0" text="Payment" />
         </columns>
       </TableView>
       <AnchorPane layoutX="1158.0" layoutY="671.0" prefHeight="312.0" prefWidth="417.0" style="-fx-background-color: #ffcccc;">
@@ -61,7 +65,10 @@
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></JFXButton>
-            <Label fx:id="lblTotal" layoutX="58.0" layoutY="133.0" prefHeight="71.0" prefWidth="305.0" />
+            <Label fx:id="lblTotal" alignment="CENTER" layoutX="58.0" layoutY="133.0" prefHeight="71.0" prefWidth="305.0" textFill="#860a0a">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
          </children>
       </AnchorPane>
       <Label layoutX="21.0" layoutY="135.0" text="REGISTER NO : -">

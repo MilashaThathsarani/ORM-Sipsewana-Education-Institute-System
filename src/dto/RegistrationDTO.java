@@ -1,10 +1,14 @@
 package dto;
 
+import java.util.List;
+
 public class RegistrationDTO {
     private String registerId;
+    private String studentId;
     private String registerDate;
     private String time;
     private double payment;
+    private List<RegisterDetailDTO> programs;
 
     public RegistrationDTO() {
     }
