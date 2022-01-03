@@ -3,9 +3,7 @@ package dto;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
 public class StudentDTO {
-    @Id
     private String studentId;
     private String studentName;
     private String address;

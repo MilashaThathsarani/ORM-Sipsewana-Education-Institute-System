@@ -153,16 +153,6 @@ public class StudentRegistrationController {
         tblStudent.setItems(obList);
     }
 
-    public void idOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String studentId = txtId.getText();
-
-        StudentDTO studentDTO = studentBO.searchStudent(studentId);
-        if (studentDTO == null) {
-            new Alert(Alert.AlertType.WARNING, "Empty Result Set").show();
-        } else {
-            setData(studentDTO);
-        }
-    }
 
     boolean existStudent(String studentId) {
         return studentBO.ifStudentExist(studentId);
@@ -195,6 +185,17 @@ public class StudentRegistrationController {
             setItemsToTable(studentBO.getAll());
         } else {
             new Alert(Alert.AlertType.WARNING, "Try Again").show();
+        }
+    }
+
+    public void idOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        String studentId = txtId.getText();
+
+        StudentDTO studentDTO = studentBO.searchStudent(studentId);
+        if (studentDTO == null) {
+            new Alert(Alert.AlertType.WARNING, "Empty Result Set").show();
+        } else {
+            setData(studentDTO);
         }
     }
 

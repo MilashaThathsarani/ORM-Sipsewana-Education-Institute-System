@@ -2,10 +2,10 @@ package entity;
 
 import javax.persistence.*;
 
+@Entity
 public class RegisterDetail implements SuperEntity{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long registerId;
+    private String registerId;
 
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "programId")
@@ -15,20 +15,20 @@ public class RegisterDetail implements SuperEntity{
     @JoinColumn(name = "sid")
     private Student sid;
 
+    public RegisterDetail(String registerId, Program programId, Student sid) {
+        this.setRegisterId(registerId);
+        this.setProgramId(programId);
+        this.setSid(sid);
+    }
+
     public RegisterDetail() {
     }
 
-    public RegisterDetail(Long registerId, Program programId, Student sid){
-        this.registerId = registerId;
-        this.programId = programId;
-        this.sid = sid;
-    }
-
-    public Long getRegisterId() {
+    public String getRegisterId() {
         return registerId;
     }
 
-    public void setRegisterId(Long registerId) {
+    public void setRegisterId(String registerId) {
         this.registerId = registerId;
     }
 
@@ -46,14 +46,5 @@ public class RegisterDetail implements SuperEntity{
 
     public void setSid(Student sid) {
         this.sid = sid;
-    }
-
-    @Override
-    public String toString() {
-        return "RegisterDetail{" +
-                "registerId=" + registerId +
-                ", programId=" + programId +
-                ", sid=" + sid +
-                '}';
     }
 }

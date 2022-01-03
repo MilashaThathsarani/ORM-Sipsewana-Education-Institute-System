@@ -11,18 +11,19 @@ public class Program implements SuperEntity {
     private String duration;
     private double fee;
 
-    @ManyToMany(mappedBy = "programId" , fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "programId" , fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private List<RegisterDetail> pid;
 
     public Program() {
     }
 
     public Program(String programId, String programName, String duration, double fee) {
-        this.setProgramId(programId);
-        this.setProgramName(programName);
-        this.setDuration(duration);
-        this.setFee(fee);
+        this.programId = programId;
+        this.programName = programName;
+        this.duration = duration;
+        this.fee = fee;
     }
+
 
     public Program(String programId, String programName, String duration, double fee, List<RegisterDetail> pid) {
         this.setProgramId(programId);

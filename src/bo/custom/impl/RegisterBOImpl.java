@@ -31,6 +31,7 @@ public class RegisterBOImpl implements RegisterBO {
 
     @Override
     public boolean purchaseRegister(RegistrationDTO dto) throws SQLException, ClassNotFoundException {
+        try {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -51,7 +52,7 @@ public class RegisterBOImpl implements RegisterBO {
         Program program = programDAO.search(dto.getProgramId());
 
         for (RegisterDetailDTO detailDTO : dto.getRegisterDetail()) {
-            RegisterDetail registerDetail = new RegisterDetail(Long.parseLong("0"), program, student1);
+            RegisterDetail registerDetail = new RegisterDetail(dto.getRegisterId(), program, student1);
             boolean registerDetailAdded = registerDetailDAO.add(registerDetail);
             if (!registerDetailAdded) {
                 transaction.commit();
@@ -61,7 +62,16 @@ public class RegisterBOImpl implements RegisterBO {
         }
         transaction.commit();
         session.close();
-        return registerAvailable;
+    }catch (Exception e) {
+        e.printStackTrace();
+    }
+        return true;
+    }
+
+
+    @Override
+    public String getRegisterIds() throws SQLException, ClassNotFoundException {
+        return registerDAO.getRegisterIds();
     }
 
     @Override

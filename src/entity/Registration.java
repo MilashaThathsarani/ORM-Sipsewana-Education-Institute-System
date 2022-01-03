@@ -3,21 +3,23 @@ package entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
 @Entity
 public class Registration implements SuperEntity{
     @Id
     private String registerId;
     private String registerDate;
     private String time;
-    private double payment;
+    private String payment;
 
     @ManyToOne
     private Student student;
 
+
     public Registration() {
     }
 
-    public Registration(String registerId, String registerDate, String time, double payment, Student student) {
+    public Registration(String registerId, String registerDate, String time, String payment, Student student) {
         this.setRegisterId(registerId);
         this.setRegisterDate(registerDate);
         this.setTime(time);
@@ -49,11 +51,11 @@ public class Registration implements SuperEntity{
         this.time = time;
     }
 
-    public double getPayment() {
+    public String getPayment() {
         return payment;
     }
 
-    public void setPayment(double payment) {
+    public void setPayment(String payment) {
         this.payment = payment;
     }
 

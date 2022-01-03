@@ -12,7 +12,7 @@ import java.util.List;
 public interface RegisterBO extends SuperBO {
     boolean purchaseRegister(RegistrationDTO dto) throws SQLException, ClassNotFoundException;
 
-    //String getOrderIds()throws SQLException, ClassNotFoundException;
+    String getRegisterIds()throws SQLException, ClassNotFoundException;
 
     StudentDTO searchStudents(String studentId)throws SQLException, ClassNotFoundException;
 

@@ -15,7 +15,7 @@ public class Student implements SuperEntity {
     private String phoneNumber;
     private String education;
 
-    @ManyToMany(mappedBy = "sid")
+    @OneToMany(mappedBy = "sid")
     private List<RegisterDetail> sid;
 
     @OneToMany(mappedBy = "student" , fetch = FetchType.EAGER)
@@ -23,14 +23,14 @@ public class Student implements SuperEntity {
 
 
     public Student(String studentId, String studentName, String address, String birthday, int age, String gender, String phoneNumber, String education) {
-        this.setStudentId(studentId);
-        this.setStudentName(studentName);
-        this.setAddress(address);
-        this.setBirthday(birthday);
-        this.setAge(age);
-        this.setGender(gender);
-        this.setPhoneNumber(phoneNumber);
-        this.setEducation(education);
+        this.studentId = studentId;
+        this.studentName = studentName;
+        this.address = address;
+        this.birthday = birthday;
+        this.age = age;
+        this.gender = gender;
+        this.phoneNumber = phoneNumber;
+        this.education = education;
     }
 
     public Student() {

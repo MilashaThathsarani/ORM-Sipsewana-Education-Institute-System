@@ -5,11 +5,9 @@ import dto.StudentDTO;
 import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.NativeQuery;
+
 import org.hibernate.query.Query;
 import util.FactoryConfiguration;
-
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -65,8 +63,8 @@ public class StudentDAOImpl implements StudentDAO {
         list = query.getResultList();
 
         transaction.commit();
-        return  list.get(0);
-
+        session.close();
+        return list.get(0);
     }
 
     @Override

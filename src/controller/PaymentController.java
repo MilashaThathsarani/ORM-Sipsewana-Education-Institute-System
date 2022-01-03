@@ -36,7 +36,7 @@ public class PaymentController {
     public Label txtDate;
     public Label txtTime;
     public JFXButton btnBack;
-    public TableView tblList;
+    public TableView <CartTM> tblList;
     public Label lblTotal;
     public TextField txtRegisterId;
     public JFXTextField txtStudentName;
@@ -57,8 +57,19 @@ public class PaymentController {
     public TableColumn colStudentName;
     public TableColumn colProgramName;
     public TableColumn colPayment;
+    private String registerId;
+    public String tempStudentId;
+    public String tempProgramId;
 
     public void initialize() {
+
+        try {
+            setRegisterId();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
         loadDateAndTime();
         try {
@@ -68,6 +79,13 @@ public class PaymentController {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
+        colRegisterId.setCellValueFactory(new PropertyValueFactory<>("registerId"));
+        colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+        colProgramId.setCellValueFactory(new PropertyValueFactory<>("programId"));
+        colStudentName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
+        colProgramName.setCellValueFactory(new PropertyValueFactory<>("programName"));
+        colPayment.setCellValueFactory(new PropertyValueFactory<>("total"));
 
         try {
             loadProgramIds();
@@ -80,6 +98,7 @@ public class PaymentController {
 
         cmbStudentId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             try {
+                tempStudentId=String.valueOf(newValue);
                 setStudentData((String) newValue);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
@@ -90,6 +109,7 @@ public class PaymentController {
 
         cmbProgramId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             try {
+                tempProgramId=String.valueOf(newValue);
                 setProgramData((String) newValue);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
@@ -97,12 +117,19 @@ public class PaymentController {
                 e.printStackTrace();
             }
         });
-        colRegisterId.setCellValueFactory(new PropertyValueFactory<>("registerId"));
-        colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
-        colProgramId.setCellValueFactory(new PropertyValueFactory<>("programId"));
-        colStudentName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
-        colProgramName.setCellValueFactory(new PropertyValueFactory<>("programName"));
-        colPayment.setCellValueFactory(new PropertyValueFactory<>("total"));
+
+        try {
+            registerId = setRegisterId();
+            txtRegisterId.setText(registerId);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String setRegisterId() throws SQLException, ClassNotFoundException {
+        return registerBO.getRegisterIds();
     }
 
     private void loadDateAndTime() {
@@ -158,9 +185,6 @@ public class PaymentController {
         cmbStudentId.getItems().addAll(studentIds);
     }
 
-    public void backOnAction(ActionEvent actionEvent) {
-    }
-
     ObservableList<CartTM> obList = FXCollections.observableArrayList();
 
     public void addToTableOnAction(ActionEvent actionEvent) {
@@ -205,7 +229,6 @@ public class PaymentController {
     }
 
     private int isExists(CartTM tm) {
-
         for (int i = 0; i < obList.size(); i++) {
             if (tm.getProgramId().equals(obList.get(i).getProgramId())) {
                 return i;
@@ -223,52 +246,29 @@ public class PaymentController {
         lblTotal.setText(ttl + "/=");
     }
 
-    public void confirmOnAction(ActionEvent actionEvent) {
-       /* RegistrationDTO registrationDTO = new RegistrationDTO(
+    public void confirmOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        RegistrationDTO registrationDTO = new RegistrationDTO(
                 txtRegisterId.getText(),
-                cmbStudentId.getValue(),
-                cmbProgramId.getValue(),
+                tempStudentId,
+                //String.valueOf(cmbProgramId.getValue()),
+                tempProgramId,
                 txtDate.getText(),
                 txtTime.getText(),
-                tblList.getItems().stream().map(tm ->
+                lblTotal.getText() ,
+                (ArrayList<RegisterDetailDTO>) tblList.getItems().stream().map(tm ->
                         new RegisterDetailDTO(tm.getProgramId(),tm.getStudentId())).collect(Collectors.toList())
         );
-
-        if(registerBO.confirmRegister(registrationDTO)){
+        if(registerBO.purchaseRegister(registrationDTO)){
         new Alert(Alert.AlertType.CONFIRMATION,"Registered Successfully").show();
         }else {
             new Alert(Alert.AlertType.WARNING,"Try again").show();
         }
+        registerId = setRegisterId();
+        txtRegisterId.setText(setRegisterId());
         tblList.getItems().clear();
-    }*/
-        ArrayList<RegisterDetailDTO> registerDetailDTOS = new ArrayList<>();
-        for (CartTM tm : obList
-        ) {
-            registerDetailDTOS.add(new RegisterDetailDTO(txtRegisterId.getText(), tm.getProgramId(), tm.getStudentId()));
-        }
-
-        boolean b = saveRegister(txtRegisterId.getText(),(String)cmbStudentId.getValue(),(String) cmbProgramId.getValue(),txtDate.getText(),txtTime.getText(),lblTotal.getText(),registerDetailDTOS);
-        if (b) {
-            new Alert(Alert.AlertType.INFORMATION, "Order has been placed successfully").show();
-            /*showInvoice();
-            setOrderId();
-            clearText();*/
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Order has not been placed successfully").show();
-        }
-
     }
 
-    public boolean saveRegister(String registerId, String studentId, String programId, String registerDate, String time, String payment, ArrayList<RegisterDetailDTO>registerDetail) {
-        try {
-            RegistrationDTO registrationDTO = new RegistrationDTO(registerId,studentId,programId,registerDate,time,payment,registerDetail);
-            return registerBO.purchaseRegister(registrationDTO);
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return false;
+    public void backOnAction(ActionEvent actionEvent) {
     }
+
 }

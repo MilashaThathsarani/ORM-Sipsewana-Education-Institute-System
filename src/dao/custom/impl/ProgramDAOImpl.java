@@ -65,6 +65,7 @@ public class ProgramDAOImpl implements ProgramDAO {
         list = query.getResultList();
 
         transaction.commit();
+        session.close();
         return list.get(0);
     }
 
@@ -86,18 +87,6 @@ public class ProgramDAOImpl implements ProgramDAO {
 
     @Override
     public ArrayList<ProgramDTO> getAllProgramIds() throws SQLException, ClassNotFoundException {
-       return null;
+        return null;
     }
-
-   /* @Override
-    public List getAllProgramIds() throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.executeQuery("SELECT * FROM Customer");
-        List<String> ids = new ArrayList<>();
-        while (rst.next()) {
-            ids.add(
-                    rst.getString("custId")
-            );
-        }
-        return ids;
-    }*/
 }

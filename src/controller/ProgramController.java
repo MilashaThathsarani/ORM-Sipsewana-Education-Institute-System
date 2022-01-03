@@ -146,17 +146,6 @@ public class ProgramController {
         window.centerOnScreen();
     }
 
-    public void programNameOnAction(ActionEvent actionEvent) {
-        txtDuration.requestFocus();
-    }
-
-    public void durationOnAction(ActionEvent actionEvent) {
-        txtFee.requestFocus();
-    }
-
-    public void feeOnAction(ActionEvent actionEvent) {
-    }
-
     public void idOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String programId = txtId.getText();
 
@@ -167,11 +156,21 @@ public class ProgramController {
             setData(programDTO);
         }
     }
-
     private void setData(ProgramDTO p) {
         txtId.setText(p.getProgramId());
         txtProgramName.setText(p.getProgramName());
         txtDuration.setText(p.getDuration());
         txtFee.setText(String.valueOf(p.getFee()));
+    }
+
+    public void programNameOnAction(ActionEvent actionEvent) {
+        txtDuration.requestFocus();
+    }
+
+    public void durationOnAction(ActionEvent actionEvent) {
+        txtFee.requestFocus();
+    }
+
+    public void feeOnAction(ActionEvent actionEvent) {
     }
 }

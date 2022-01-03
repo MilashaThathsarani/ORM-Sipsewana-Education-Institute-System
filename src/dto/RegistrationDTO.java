@@ -1,6 +1,5 @@
 package dto;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RegistrationDTO {
@@ -9,13 +8,10 @@ public class RegistrationDTO {
     private String programId;
     private String registerDate;
     private String time;
-    private double payment;
+    private String payment;
     private List<RegisterDetailDTO> registerDetail;
 
-    public RegistrationDTO() {
-    }
-
-    public RegistrationDTO(String registerId, String studentId, String programId, String registerDate, String time, double payment, List<RegisterDetailDTO> registerDetail) {
+    public RegistrationDTO(String registerId, String studentId, String programId, String registerDate, String time, String payment, List<RegisterDetailDTO> registerDetail) {
         this.setRegisterId(registerId);
         this.setStudentId(studentId);
         this.setProgramId(programId);
@@ -25,7 +21,7 @@ public class RegistrationDTO {
         this.setRegisterDetail(registerDetail);
     }
 
-    public RegistrationDTO(String registerId, String studentId, String programId, String registerDate, String time, String payment, ArrayList<RegisterDetailDTO> registerDetailDTOS) {
+    public RegistrationDTO() {
     }
 
     public String getRegisterId() {
@@ -68,11 +64,11 @@ public class RegistrationDTO {
         this.time = time;
     }
 
-    public double getPayment() {
+    public String getPayment() {
         return payment;
     }
 
-    public void setPayment(double payment) {
+    public void setPayment(String payment) {
         this.payment = payment;
     }
 
@@ -82,18 +78,5 @@ public class RegistrationDTO {
 
     public void setRegisterDetail(List<RegisterDetailDTO> registerDetail) {
         this.registerDetail = registerDetail;
-    }
-
-    @Override
-    public String toString() {
-        return "RegistrationDTO{" +
-                "registerId='" + registerId + '\'' +
-                ", studentId='" + studentId + '\'' +
-                ", programId='" + programId + '\'' +
-                ", registerDate='" + registerDate + '\'' +
-                ", time='" + time + '\'' +
-                ", payment=" + payment +
-                ", registerDetail=" + registerDetail +
-                '}';
     }
 }

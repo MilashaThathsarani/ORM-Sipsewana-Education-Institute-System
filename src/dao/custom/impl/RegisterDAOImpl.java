@@ -63,4 +63,32 @@ public class RegisterDAOImpl implements RegisterDAO {
     public boolean ifRegisterExist(String registerId) {
         return false;
     }
+
+    @Override
+    public String getRegisterIds() throws SQLException, ClassNotFoundException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        String hql = "FROM Registration r ORDER BY r.registerId desc ";
+        Query query = session.createQuery(hql);
+        List resultList = query.getResultList();
+        transaction.commit();
+        session.close();
+        if (resultList.size() > 0){
+            int tempId = Integer.
+                    parseInt(((Registration) resultList.get(0)).getRegisterId().split("-")[1]);
+            tempId = tempId + 1;
+            if (tempId <= 9) {
+                return "R-00" + tempId;
+            } else if (tempId <= 99) {
+                return "R-0" + tempId;
+            } else if (tempId <= 999) {
+                return "R-0" + tempId;
+            } else {
+                return "R-" + tempId;
+            }
+        }else {
+            return "R-001";
+        }
+    }
 }
