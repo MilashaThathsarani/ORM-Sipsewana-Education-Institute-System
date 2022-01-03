@@ -4,13 +4,19 @@ import bo.custom.RegisterBO;
 import dao.DAOFactory;
 import dao.custom.ProgramDAO;
 import dao.custom.RegisterDAO;
+import dao.custom.RegisterDetailDAO;
 import dao.custom.StudentDAO;
 import dto.ProgramDTO;
+import dto.RegisterDetailDTO;
 import dto.RegistrationDTO;
 import dto.StudentDTO;
 import entity.Program;
+import entity.RegisterDetail;
 import entity.Registration;
 import entity.Student;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import util.FactoryConfiguration;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -21,16 +27,41 @@ public class RegisterBOImpl implements RegisterBO {
     private final StudentDAO studentDAO = (StudentDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
     private final ProgramDAO programDAO = (ProgramDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.PROGRAM);
     private final RegisterDAO registerDAO = (RegisterDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.REGISTER);
+    private final RegisterDetailDAO registerDetailDAO = (RegisterDetailDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.REGISTERDETAIL);
 
     @Override
     public boolean purchaseRegister(RegistrationDTO dto) throws SQLException, ClassNotFoundException {
-        /*return registerDAO.add(new Registration(
-                dto.getRegisterId(),
-                dto.getRegisterDate(),
-                dto.getTime(),
-                dto.getPayment()
-        );*/
-        return false;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        boolean registerAvailable = registerDAO.ifRegisterExist(dto.getRegisterId());
+        if (registerAvailable) {
+            return false;
+        }
+
+        Student student = studentDAO.search(dto.getStudentId());
+        Registration registration = new Registration(dto.getRegisterId(), dto.getRegisterDate(), dto.getTime(), dto.getPayment(), student);
+        boolean registerAdded = registerDAO.add(registration);
+        if (!registerAdded) {
+            transaction.commit();
+            session.close();
+            return false;
+        }
+        Student student1 = studentDAO.search(dto.getStudentId());
+        Program program = programDAO.search(dto.getProgramId());
+
+        for (RegisterDetailDTO detailDTO : dto.getRegisterDetail()) {
+            RegisterDetail registerDetail = new RegisterDetail(Long.parseLong("0"), program, student1);
+            boolean registerDetailAdded = registerDetailDAO.add(registerDetail);
+            if (!registerDetailAdded) {
+                transaction.commit();
+                session.close();
+                return false;
+            }
+        }
+        transaction.commit();
+        session.close();
+        return registerAvailable;
     }
 
     @Override
@@ -57,9 +88,9 @@ public class RegisterBOImpl implements RegisterBO {
 
     @Override
     public List<String> getAllStudentIds() throws SQLException, ClassNotFoundException {
-        List <String> studentIds = new ArrayList<>();
-        List<Student> allStudents =studentDAO.getAll();
-        for (Student student : allStudents){
+        List<String> studentIds = new ArrayList<>();
+        List<Student> allStudents = studentDAO.getAll();
+        for (Student student : allStudents) {
             studentIds.add(student.getStudentId());
         }
         return studentIds;
@@ -67,9 +98,9 @@ public class RegisterBOImpl implements RegisterBO {
 
     @Override
     public List<String> getAllProgramIds() throws SQLException, ClassNotFoundException {
-        List <String> programIds = new ArrayList<>();
+        List<String> programIds = new ArrayList<>();
         List<Program> allProgram = programDAO.getAll();
-        for (Program program : allProgram){
+        for (Program program : allProgram) {
             programIds.add(program.getProgramId());
         }
         return programIds;

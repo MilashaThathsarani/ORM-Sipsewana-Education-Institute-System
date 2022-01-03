@@ -58,4 +58,9 @@ public class RegisterDAOImpl implements RegisterDAO {
     public ArrayList<Registration> getAll() throws SQLException, ClassNotFoundException {
         return null;
     }
+
+    @Override
+    public boolean ifRegisterExist(String registerId) {
+        return false;
+    }
 }

@@ -1,6 +1,7 @@
 package util;
 
 import entity.Program;
+import entity.RegisterDetail;
 import entity.Registration;
 import entity.Student;
 import org.hibernate.Session;
@@ -22,7 +23,7 @@ public class FactoryConfiguration {
             throw new RuntimeException("There is issue in Hibernate util");
         }
             Configuration configuration = new Configuration().addAnnotatedClass(Student.class)
-                    .addAnnotatedClass(Program.class).addAnnotatedClass(Registration.class).mergeProperties(properties);
+                    .addAnnotatedClass(Program.class).addAnnotatedClass(Registration.class).addAnnotatedClass(RegisterDetail.class).mergeProperties(properties);
             sessionFactory = configuration.buildSessionFactory();
         }
 

@@ -26,15 +26,15 @@ public class DAOFactory {
                 return new ProgramDAOImpl();
             case REGISTER:
                 return new RegisterDAOImpl();
-            /*case ORDERDETAILS:
-                return new OrderDetailDAOImpl();*/
+            case REGISTERDETAIL:
+                return new RegisterDAOImpl();
             default:
                 return null;
         }
     }
 
     public enum DAOTypes {
-        STUDENT,PROGRAM , REGISTER
+        STUDENT,PROGRAM , REGISTER ,REGISTERDETAIL
     }
 
 }
