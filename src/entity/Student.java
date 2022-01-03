@@ -1,7 +1,6 @@
 package entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,28 +15,14 @@ public class Student implements SuperEntity {
     private String phoneNumber;
     private String education;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Program> programList = new ArrayList<>();
+    @ManyToMany(mappedBy = "sid")
+    private List<RegisterDetail> sid;
 
-    @OneToMany(mappedBy = "student")
+    @OneToMany(mappedBy = "student" , fetch = FetchType.EAGER)
     private List<Registration> registration;
 
 
     public Student(String studentId, String studentName, String address, String birthday, int age, String gender, String phoneNumber, String education) {
-        this.studentId = studentId;
-        this.studentName = studentName;
-        this.address = address;
-        this.birthday = birthday;
-        this.age = age;
-        this.gender = gender;
-        this.phoneNumber = phoneNumber;
-        this.education = education;
-    }
-
-    public Student() {
-    }
-
-    public Student(String studentId, String studentName, String address, String birthday, int age, String gender, String phoneNumber, String education, List<Program> programList, List<Registration> registration) {
         this.setStudentId(studentId);
         this.setStudentName(studentName);
         this.setAddress(address);
@@ -46,7 +31,21 @@ public class Student implements SuperEntity {
         this.setGender(gender);
         this.setPhoneNumber(phoneNumber);
         this.setEducation(education);
-        this.setProgramList(programList);
+    }
+
+    public Student() {
+    }
+
+    public Student(String studentId, String studentName, String address, String birthday, int age, String gender, String phoneNumber, String education, List<RegisterDetail> sid, List<Registration> registration) {
+        this.setStudentId(studentId);
+        this.setStudentName(studentName);
+        this.setAddress(address);
+        this.setBirthday(birthday);
+        this.setAge(age);
+        this.setGender(gender);
+        this.setPhoneNumber(phoneNumber);
+        this.setEducation(education);
+        this.setSid(sid);
         this.setRegistration(registration);
     }
 
@@ -114,12 +113,12 @@ public class Student implements SuperEntity {
         this.education = education;
     }
 
-    public List<Program> getProgramList() {
-        return programList;
+    public List<RegisterDetail> getSid() {
+        return sid;
     }
 
-    public void setProgramList(List<Program> programList) {
-        this.programList = programList;
+    public void setSid(List<RegisterDetail> sid) {
+        this.sid = sid;
     }
 
     public List<Registration> getRegistration() {
@@ -141,7 +140,7 @@ public class Student implements SuperEntity {
                 ", gender='" + gender + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", education='" + education + '\'' +
-                ", programList=" + programList +
+                ", sid=" + sid +
                 ", registration=" + registration +
                 '}';
     }

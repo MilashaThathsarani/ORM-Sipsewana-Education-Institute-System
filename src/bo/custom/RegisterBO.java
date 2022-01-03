@@ -2,13 +2,15 @@ package bo.custom;
 
 import bo.SuperBO;
 import dto.ProgramDTO;
+import dto.RegistrationDTO;
 import dto.StudentDTO;
+import entity.RegisterDetail;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public interface RegisterBO extends SuperBO {
-    //boolean purchaseOrder(OrdersDTO dto) throws SQLException, ClassNotFoundException;
+    boolean purchaseRegister(RegistrationDTO dto) throws SQLException, ClassNotFoundException;
 
     //String getOrderIds()throws SQLException, ClassNotFoundException;
 

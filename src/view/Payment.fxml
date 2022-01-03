@@ -31,14 +31,17 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Label fx:id="txtDate" layoutX="835.0" layoutY="19.0" prefHeight="52.0" prefWidth="228.0" />
+            <Label fx:id="txtDate" alignment="CENTER" layoutX="878.0" layoutY="27.0" prefHeight="52.0" prefWidth="200.0" />
             <Label layoutX="1121.0" layoutY="37.0" text="Time :">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Label fx:id="txtTime" layoutX="1193.0" layoutY="29.0" prefHeight="52.0" prefWidth="228.0" />
-            <JFXButton fx:id="btnBack" layoutX="1492.0" layoutY="37.0" onAction="#backOnAction" prefHeight="36.0" prefWidth="72.0" text="Back" />
+            <Label fx:id="txtTime" alignment="CENTER" layoutX="1193.0" layoutY="27.0" prefHeight="52.0" prefWidth="200.0" />
+            <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="1482.0" layoutY="22.0" onAction="#backOnAction" prefHeight="65.0" prefWidth="94.0" text="--&gt;">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font></JFXButton>
          </children></AnchorPane>
       <TableView fx:id="tblList" layoutX="27.0" layoutY="671.0" prefHeight="312.0" prefWidth="1107.0" stylesheets="@styles/StudentForm.css">
         <columns>

@@ -6,20 +6,29 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dto.ProgramDTO;
+import dto.RegisterDetailDTO;
 import dto.RegistrationDTO;
 import dto.StudentDTO;
 import entity.Program;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import view.tm.CartTM;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PaymentController {
     private final RegisterBO registerBO = (RegisterBO) BoFactory.getBOFactory().getBO(BoFactory.BoTypes.REGISTER);
@@ -49,7 +58,9 @@ public class PaymentController {
     public TableColumn colProgramName;
     public TableColumn colPayment;
 
-    public void initialize(){
+    public void initialize() {
+
+        loadDateAndTime();
         try {
             loadStudentIds();
         } catch (SQLException throwables) {
@@ -94,11 +105,28 @@ public class PaymentController {
         colPayment.setCellValueFactory(new PropertyValueFactory<>("total"));
     }
 
+    private void loadDateAndTime() {
+        Date date = new Date();
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+        txtDate.setText(f.format(date));
+
+        Timeline time = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            LocalTime currentTime = LocalTime.now();
+            txtTime.setText(
+                    currentTime.getHour() + " : " + currentTime.getMinute() + " : " + currentTime.getSecond()
+            );
+        }),
+                new KeyFrame(Duration.seconds(1))
+        );
+        time.setCycleCount(Animation.INDEFINITE);
+        time.play();
+    }
+
     private void setProgramData(String programId) throws SQLException, ClassNotFoundException {
         ProgramDTO programDTO = registerBO.searchPrograms(programId);
-        if (programDTO == null){
+        if (programDTO == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result");
-        }else {
+        } else {
             txtProgramName.setText(programDTO.getProgramName());
             txtDuration.setText(programDTO.getDuration());
             txtFee.setText(String.valueOf(programDTO.getFee()));
@@ -120,12 +148,12 @@ public class PaymentController {
         }
     }
 
-   private void loadProgramIds() throws SQLException, ClassNotFoundException {
+    private void loadProgramIds() throws SQLException, ClassNotFoundException {
         List<String> programIds = registerBO.getAllProgramIds();
         cmbProgramId.getItems().addAll(programIds);
     }
 
-   private void loadStudentIds() throws SQLException, ClassNotFoundException {
+    private void loadStudentIds() throws SQLException, ClassNotFoundException {
         List<String> studentIds = registerBO.getAllStudentIds();
         cmbStudentId.getItems().addAll(studentIds);
     }
@@ -134,6 +162,7 @@ public class PaymentController {
     }
 
     ObservableList<CartTM> obList = FXCollections.observableArrayList();
+
     public void addToTableOnAction(ActionEvent actionEvent) {
         String registerId = txtRegisterId.getText();
         String studentId = String.valueOf(cmbStudentId.getValue());
@@ -153,7 +182,7 @@ public class PaymentController {
 
         int rowNumber = isExists(tm);
 
-        if ( rowNumber==-1) {
+        if (rowNumber == -1) {
             obList.add(tm);
         } else {
             CartTM temp = obList.get(rowNumber);
@@ -163,7 +192,7 @@ public class PaymentController {
                     temp.getProgramId(),
                     temp.getStudentName(),
                     temp.getProgramName(),
-                    total+temp.getTotal()
+                    total + temp.getTotal()
             );
 
             obList.remove(rowNumber);
@@ -178,43 +207,62 @@ public class PaymentController {
     private int isExists(CartTM tm) {
 
         for (int i = 0; i < obList.size(); i++) {
-            if (tm.getProgramId().equals(obList.get(i).getProgramId())){
+            if (tm.getProgramId().equals(obList.get(i).getProgramId())) {
                 return i;
             }
         }
         return -1;
     }
+
     void calculate() {
         double ttl = 0;
         for (CartTM tm : obList
         ) {
             ttl += tm.getTotal();
         }
-        lblTotal.setText(ttl+"/=");
+        lblTotal.setText(ttl + "/=");
     }
 
     public void confirmOnAction(ActionEvent actionEvent) {
-        /*ArrayList<OrderDetailDTO> items= new ArrayList<>();
-        for (CartTM tm:obList
+       /* RegistrationDTO registrationDTO = new RegistrationDTO(
+                txtRegisterId.getText(),
+                cmbStudentId.getValue(),
+                cmbProgramId.getValue(),
+                txtDate.getText(),
+                txtTime.getText(),
+                tblList.getItems().stream().map(tm ->
+                        new RegisterDetailDTO(tm.getProgramId(),tm.getStudentId())).collect(Collectors.toList())
+        );
+
+        if(registerBO.confirmRegister(registrationDTO)){
+        new Alert(Alert.AlertType.CONFIRMATION,"Registered Successfully").show();
+        }else {
+            new Alert(Alert.AlertType.WARNING,"Try again").show();
+        }
+        tblList.getItems().clear();
+    }*/
+        ArrayList<RegisterDetailDTO> registerDetailDTOS = new ArrayList<>();
+        for (CartTM tm : obList
         ) {
-            items.add (new OrderDetailDTO(txtOrderId.getText(),tm.getItemCode(),tm.getQty(),tm.getUnitPrice()));
+            registerDetailDTOS.add(new RegisterDetailDTO(txtRegisterId.getText(), tm.getProgramId(), tm.getStudentId()));
         }
 
-        boolean b = saveOrder(txtOrderId.getText(), (String) cmbCustomerId.getValue(),lblDate.getText(),items);
+        boolean b = saveRegister(txtRegisterId.getText(),(String)cmbStudentId.getValue(),(String) cmbProgramId.getValue(),txtDate.getText(),txtTime.getText(),lblTotal.getText(),registerDetailDTOS);
         if (b) {
             new Alert(Alert.AlertType.INFORMATION, "Order has been placed successfully").show();
-            //showInvoice();
-            //setOrderId();
-            //clearText();
+            /*showInvoice();
+            setOrderId();
+            clearText();*/
         } else {
             new Alert(Alert.AlertType.ERROR, "Order has not been placed successfully").show();
-        }*/
+        }
+
     }
 
-    /*public boolean saveOrder(String registerId,String registerDate, String register, List<OrderDetailDTO> items) {
+    public boolean saveRegister(String registerId, String studentId, String programId, String registerDate, String time, String payment, ArrayList<RegisterDetailDTO>registerDetail) {
         try {
-            RegistrationDTO registrationDTO = new RegistrationDTO();
-            return purchaseOrderBO.purchaseOrder(ordersDTO);
+            RegistrationDTO registrationDTO = new RegistrationDTO(registerId,studentId,programId,registerDate,time,payment,registerDetail);
+            return registerBO.purchaseRegister(registrationDTO);
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -222,5 +270,5 @@ public class PaymentController {
             e.printStackTrace();
         }
         return false;
-    }*/
+    }
 }

@@ -26,12 +26,12 @@
                   <Image url="@assets/4.jpg" />
                </image>
             </ImageView>
-            <Label layoutX="800.0" layoutY="33.0" text="Date :">
+            <Label layoutX="786.0" layoutY="32.0" text="Date :" textFill="#860a0a">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Label layoutX="1142.0" layoutY="36.0" text="Time :">
+            <Label layoutX="1128.0" layoutY="36.0" text="Time :" textFill="#860a0a">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>

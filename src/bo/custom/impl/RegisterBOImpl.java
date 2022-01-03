@@ -6,8 +6,10 @@ import dao.custom.ProgramDAO;
 import dao.custom.RegisterDAO;
 import dao.custom.StudentDAO;
 import dto.ProgramDTO;
+import dto.RegistrationDTO;
 import dto.StudentDTO;
 import entity.Program;
+import entity.Registration;
 import entity.Student;
 
 import java.sql.SQLException;
@@ -19,6 +21,18 @@ public class RegisterBOImpl implements RegisterBO {
     private final StudentDAO studentDAO = (StudentDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
     private final ProgramDAO programDAO = (ProgramDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.PROGRAM);
     private final RegisterDAO registerDAO = (RegisterDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.REGISTER);
+
+    @Override
+    public boolean purchaseRegister(RegistrationDTO dto) throws SQLException, ClassNotFoundException {
+        /*return registerDAO.add(new Registration(
+                dto.getRegisterId(),
+                dto.getRegisterDate(),
+                dto.getTime(),
+                dto.getPayment()
+        );*/
+        return false;
+    }
+
     @Override
     public StudentDTO searchStudents(String studentId) throws SQLException, ClassNotFoundException {
         Student student = studentDAO.search(studentId);
