@@ -87,27 +87,27 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtFullName" focusColor="#752003" labelFloat="true" layoutX="42.0" layoutY="215.0" onAction="#fullNameOnAction" prefHeight="52.0" prefWidth="561.0" promptText="Full Name">
+      <JFXTextField fx:id="txtFullName" focusColor="#752003" labelFloat="true" layoutX="42.0" layoutY="215.0" onAction="#fullNameOnAction" onKeyReleased="#Student_KeyReleased" prefHeight="52.0" prefWidth="561.0" promptText="Full Name">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtAddress" focusColor="#752003" labelFloat="true" layoutX="738.0" layoutY="215.0" onAction="#addressOnAction" prefHeight="52.0" prefWidth="809.0" promptText="Address">
+      <JFXTextField fx:id="txtAddress" focusColor="#752003" labelFloat="true" layoutX="738.0" layoutY="215.0" onAction="#addressOnAction" onKeyReleased="#Student_KeyReleased" prefHeight="52.0" prefWidth="809.0" promptText="Address">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtAge" focusColor="#752003" labelFloat="true" layoutX="448.0" layoutY="316.0" onAction="#ageOnAction" prefHeight="52.0" prefWidth="310.0" promptText="Age">
+      <JFXTextField fx:id="txtAge" focusColor="#752003" labelFloat="true" layoutX="448.0" layoutY="316.0" onAction="#ageOnAction" onKeyReleased="#Student_KeyReleased" prefHeight="52.0" prefWidth="310.0" promptText="Age">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtPhoneNumber" focusColor="#752003" labelFloat="true" layoutX="1211.0" layoutY="316.0" onAction="#feeOnAction" prefHeight="52.0" prefWidth="332.0" promptText="Phone Number">
+      <JFXTextField fx:id="txtPhoneNumber" focusColor="#752003" labelFloat="true" layoutX="1211.0" layoutY="316.0" onAction="#feeOnAction" onKeyReleased="#Student_KeyReleased" prefHeight="52.0" prefWidth="332.0" promptText="Phone Number">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtEducation" focusColor="#752003" labelFloat="true" layoutX="44.0" layoutY="424.0" onAction="#educationOnAction" prefHeight="52.0" prefWidth="809.0" promptText="Education">
+      <JFXTextField fx:id="txtEducation" focusColor="#752003" labelFloat="true" layoutX="44.0" layoutY="424.0" onAction="#educationOnAction" onKeyReleased="#Student_KeyReleased" prefHeight="52.0" prefWidth="809.0" promptText="Education">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -129,7 +129,7 @@
             <Image url="@assets/trash.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="40.0" layoutX="1503.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="40.0" layoutX="1503.0" layoutY="135.0" onKeyReleased="#Student_KeyReleased" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/icons8-search-30.png" />
          </image>

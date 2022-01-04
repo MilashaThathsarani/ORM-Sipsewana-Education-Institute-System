@@ -2,29 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8742d7b5-2996-4549-b170-6836afb1b23f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b0d38d14-feae-4aae-aa10-83bbd72c603b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b0d38d14-feae-4aae-aa10-83bbd72c603b.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bo/custom/ProgramBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bo/custom/ProgramBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bo/custom/StudentBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bo/custom/StudentBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bo/custom/impl/ProgramBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bo/custom/impl/ProgramBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bo/custom/impl/StudentBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bo/custom/impl/StudentBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ProgramController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/StudentRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/StudentRegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ViewAllDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ViewAllDetailsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ViewRegisterDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ViewRegisterDetailsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/custom/ProgramDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/custom/ProgramDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/custom/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/custom/StudentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/custom/impl/ProgramDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/custom/impl/ProgramDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/custom/impl/StudentDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/custom/impl/StudentDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/LoginForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/LoginForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Payment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Payment.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Programs.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Programs.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/StudentRegistration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/StudentRegistration.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ViewAllDetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ViewAllDetails.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ViewProgramDetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ViewProgramDetails.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ViewRegisterDetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ViewRegisterDetails.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ViewStudentDetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ViewStudentDetails.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,11 +50,11 @@
       <recent name="E:\GDSE 58\2nd Semester Projects\WorkArea\ORM-Education Institute System\src\view" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="validation" />
       <recent name="dto" />
       <recent name="bo" />
       <recent name="bo.custom" />
       <recent name="util" />
-      <recent name="db" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\GDSE 58\2nd Semester Projects\WorkArea\ORM-Education Institute System\src\view\assets" />
@@ -120,7 +100,7 @@
       <workItem from="1641012841140" duration="17861000" />
       <workItem from="1641092239204" duration="20691000" />
       <workItem from="1641181780021" duration="30535000" />
-      <workItem from="1641267259183" duration="14920000" />
+      <workItem from="1641267259183" duration="16159000" />
     </task>
     <task id="LOCAL-00001" summary="Content Updated">
       <created>1641104440766</created>
@@ -242,7 +222,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/controller/StudentRegistrationController.java</url>
-          <line>180</line>
+          <line>200</line>
           <properties class="controller.StudentRegistrationController" method="deleteOnAction">
             <option name="EMULATED" value="true" />
           </properties>

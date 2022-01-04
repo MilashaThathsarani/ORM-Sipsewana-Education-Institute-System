@@ -1,12 +1,10 @@
 package controller;
 
 import bo.BoFactory;
-import bo.custom.ProgramBO;
 import bo.custom.StudentBO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dto.StudentDTO;
-import entity.Student;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -17,9 +15,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import validation.ValidationUtil;
 import view.tm.StudentTM;
 
 import java.io.IOException;
@@ -28,6 +29,8 @@ import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.regex.Pattern;
 
 public class StudentRegistrationController {
     private final StudentBO studentBO = (StudentBO) BoFactory.getBOFactory().getBO(BoFactory.BoTypes.STUDENT);
@@ -58,8 +61,15 @@ public class StudentRegistrationController {
     public JFXTextField txtBirthDay;
     public AnchorPane studentContext;
 
-    public void initialize() throws SQLException, ClassNotFoundException {
+    LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();
+    Pattern namePattern = Pattern.compile("^[A-z ]{2,}$");
+    Pattern addressPattern = Pattern.compile("^[A-z ]{3,30}([0-9]{1,2})?$");
+    Pattern agePattern = Pattern.compile("[1-9][0-9]*$");
+    Pattern phoneNumberPattern = Pattern.compile("^[0-9][-]?[0-9]*$");
+    Pattern educationPattern = Pattern.compile("[A-z ]{3,30}([0-9]{1,2})?$");
 
+    public void initialize() throws SQLException, ClassNotFoundException {
+        storeValidation();
 
         colStudentId.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
         colFullName.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
@@ -90,6 +100,14 @@ public class StudentRegistrationController {
         
         setStudentId();
 
+    }
+
+    private void storeValidation() {
+        map.put(txtFullName, namePattern);
+        map.put(txtAddress, addressPattern);
+        map.put(txtAge, agePattern);
+        map.put(txtPhoneNumber, phoneNumberPattern);
+        map.put(txtEducation, educationPattern);
     }
 
     private void setStudentId() throws SQLException, ClassNotFoundException {
@@ -202,9 +220,7 @@ public class StudentRegistrationController {
        txtId.setText(s.getStudentId());
        txtFullName.setText(s.getStudentName());
        txtAddress.setText(s.getAddress());
-       //txtBirthDay.setText(s.getBirthday());
        txtAge.setText(String.valueOf(s.getAge()));
-       //cmbGender.setValue(s.getGender());
        txtPhoneNumber.setText(s.getPhoneNumber());
        txtEducation.setText(s.getEducation());
     }
@@ -241,5 +257,16 @@ public class StudentRegistrationController {
 
     public void genderOnAction(ActionEvent actionEvent) {
         txtPhoneNumber.requestFocus();
+    }
+
+    public void Student_KeyReleased(KeyEvent keyEvent) {
+        Object response = ValidationUtil.validate(map, btnAdd);
+
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            if (response instanceof TextField) {
+                TextField errorText = (TextField) response;
+                errorText.requestFocus();
+            }
+        }
     }
 }
