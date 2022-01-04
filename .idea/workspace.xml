@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8742d7b5-2996-4549-b170-6836afb1b23f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/StudentRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/StudentRegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/StudentRegistration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/StudentRegistration.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ProgramController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Programs.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Programs.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +100,7 @@
       <workItem from="1641012841140" duration="17861000" />
       <workItem from="1641092239204" duration="20691000" />
       <workItem from="1641181780021" duration="30535000" />
-      <workItem from="1641267259183" duration="16159000" />
+      <workItem from="1641267259183" duration="16982000" />
     </task>
     <task id="LOCAL-00001" summary="Content Updated">
       <created>1641104440766</created>
@@ -144,10 +144,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="274" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1641033612978" />
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1641278005401">
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1641285872793">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1641278005401" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1641285872793" />
     <state x="499" y="159" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1641201162035">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -160,22 +160,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="473" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1641195693884" />
-    <state width="1493" height="284" key="GridCell.Tab.0.bottom" timestamp="1641284302022">
+    <state width="1493" height="284" key="GridCell.Tab.0.bottom" timestamp="1641285970836">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="284" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1641284302022" />
-    <state width="1493" height="284" key="GridCell.Tab.0.center" timestamp="1641284302022">
+    <state width="1493" height="284" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1641285970836" />
+    <state width="1493" height="284" key="GridCell.Tab.0.center" timestamp="1641285970836">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="284" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1641284302022" />
-    <state width="1493" height="284" key="GridCell.Tab.0.left" timestamp="1641284302022">
+    <state width="1493" height="284" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1641285970836" />
+    <state width="1493" height="284" key="GridCell.Tab.0.left" timestamp="1641285970835">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="284" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1641284302022" />
-    <state width="1493" height="284" key="GridCell.Tab.0.right" timestamp="1641284302022">
+    <state width="1493" height="284" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1641285970835" />
+    <state width="1493" height="284" key="GridCell.Tab.0.right" timestamp="1641285970836">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="284" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1641284302022" />
+    <state width="1493" height="284" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1641285970836" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1641152169292">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -222,7 +222,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/controller/StudentRegistrationController.java</url>
-          <line>200</line>
+          <line>198</line>
           <properties class="controller.StudentRegistrationController" method="deleteOnAction">
             <option name="EMULATED" value="true" />
           </properties>

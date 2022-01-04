@@ -50,12 +50,15 @@
                </font>
             </Label>
          </children></AnchorPane>
-      <Label layoutX="53.0" layoutY="175.0" text="Programme Id :">
+      <Label layoutX="53.0" layoutY="169.0" text="Programme Id :">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtId" focusColor="#752003" layoutX="212.0" layoutY="149.0" onAction="#idOnAction" prefHeight="52.0" prefWidth="219.0" />
+      <JFXTextField fx:id="txtId" alignment="CENTER" focusColor="#752003" layoutX="211.0" layoutY="158.0" onAction="#idOnAction" prefHeight="52.0" prefWidth="219.0">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font></JFXTextField>
       <JFXTextField fx:id="txtSearch" focusColor="#752003" labelFloat="true" layoutX="1207.0" layoutY="138.0" prefHeight="52.0" prefWidth="266.0" promptText="Search">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -82,17 +85,17 @@
          <font>
             <Font name="System Bold" size="18.0" />
          </font></JFXButton>
-      <JFXTextField fx:id="txtProgramName" focusColor="#752003" labelFloat="true" layoutX="53.0" layoutY="277.0" onAction="#programNameOnAction" prefHeight="52.0" prefWidth="561.0" promptText="Program Name">
+      <JFXTextField fx:id="txtProgramName" focusColor="#752003" labelFloat="true" layoutX="53.0" layoutY="277.0" onAction="#programNameOnAction" onKeyReleased="#Program_KeyReleased" prefHeight="52.0" prefWidth="561.0" promptText="Program Name">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtDuration" focusColor="#752003" labelFloat="true" layoutX="697.0" layoutY="277.0" onAction="#durationOnAction" prefHeight="52.0" prefWidth="376.0" promptText="Duration">
+      <JFXTextField fx:id="txtDuration" focusColor="#752003" labelFloat="true" layoutX="697.0" layoutY="277.0" onAction="#durationOnAction" onKeyReleased="#Program_KeyReleased" prefHeight="52.0" prefWidth="376.0" promptText="Duration">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtFee" focusColor="#752003" labelFloat="true" layoutX="1162.0" layoutY="277.0" onAction="#feeOnAction" prefHeight="52.0" prefWidth="376.0" promptText="Fee (LKR)">
+      <JFXTextField fx:id="txtFee" focusColor="#752003" labelFloat="true" layoutX="1162.0" layoutY="277.0" onAction="#feeOnAction" onKeyReleased="#Program_KeyReleased" prefHeight="52.0" prefWidth="376.0" promptText="Fee (LKR)">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

@@ -15,14 +15,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import validation.ValidationUtil;
 import view.tm.ProgramTM;
 import view.tm.StudentTM;
 
@@ -32,6 +32,8 @@ import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.regex.Pattern;
 
 public class ProgramController {
     private final ProgramBO programBO = (ProgramBO) BoFactory.getBOFactory().getBO(BoFactory.BoTypes.PROGRAM);
@@ -53,7 +55,14 @@ public class ProgramController {
     public JFXTextField txtFee;
     public AnchorPane programContext;
 
+    LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();
+    Pattern namePattern = Pattern.compile("^[A-z ]{2,}$");
+    Pattern durationPattern = Pattern.compile("[A-z ]{3,30}([0-9]{1,2})?$");
+    Pattern feePattern = Pattern.compile("[1-9][0-9]*([.][0-9]{2})?$");
+
     public void initialize() throws SQLException, ClassNotFoundException {
+
+        storeValidation();
 
         colProgramId.setCellValueFactory(new PropertyValueFactory<>("programId"));
         colProgramName.setCellValueFactory(new PropertyValueFactory<>("programName"));
@@ -69,6 +78,12 @@ public class ProgramController {
 
         setItemsToTable(programBO.getAll());
         //setProgramId();
+    }
+
+    private void storeValidation() {
+        map.put(txtProgramName, namePattern);
+        map.put(txtDuration,durationPattern);
+        map.put(txtFee,feePattern);
     }
 
     private void loadDateAndTime() {
@@ -173,5 +188,16 @@ public class ProgramController {
     }
 
     public void feeOnAction(ActionEvent actionEvent) {
+    }
+
+    public void Program_KeyReleased(KeyEvent keyEvent) {
+        Object response = ValidationUtil.validate(map, btnAdd);
+
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            if (response instanceof TextField) {
+                TextField errorText = (TextField) response;
+                errorText.requestFocus();
+            }
+        }
     }
 }
