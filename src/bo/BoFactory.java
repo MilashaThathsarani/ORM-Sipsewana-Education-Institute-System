@@ -3,6 +3,7 @@ package bo;
 
 import bo.custom.impl.RegisterBOImpl;
 import bo.custom.impl.ProgramBOImpl;
+import bo.custom.impl.RegisterDetailBOImpl;
 import bo.custom.impl.StudentBOImpl;
 
 public class BoFactory {
@@ -27,14 +28,14 @@ public class BoFactory {
                 return new ProgramBOImpl();
             case REGISTER:
                 return new RegisterBOImpl();
-            /*case ORDER_DETAIL:
-                return new OrderDetailBOImpl();*/
+            case REGISTER_DETAIL:
+                return new RegisterDetailBOImpl();
             default:
                 return null;
         }
     }
 
     public enum BoTypes {
-        STUDENT , PROGRAM , REGISTER
+        STUDENT , PROGRAM , REGISTER , REGISTER_DETAIL
     }
 }

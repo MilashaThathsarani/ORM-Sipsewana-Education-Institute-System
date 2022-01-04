@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewRegisterDetailsController">
+   <children>
+      <AnchorPane prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: #ff7675;">
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="17.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/4.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="118.0" layoutY="19.0" text="Registration Details" textFill="#860a0a">
+               <font>
+                  <Font name="Berlin Sans FB" size="52.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="tblList" layoutX="42.0" layoutY="220.0" prefHeight="376.0" prefWidth="921.0">
+        <columns>
+          <TableColumn fx:id="colProgramId" prefWidth="125.0" text="Programm Id" />
+          <TableColumn fx:id="colProgramName" prefWidth="336.0" text="Program Name" />
+            <TableColumn fx:id="colDuration" prefWidth="252.0" text="Duration" />
+            <TableColumn fx:id="colFee" prefWidth="207.0" text="Fee" />
+        </columns>
+      </TableView>
+      <Label fx:id="lblRegisterId" layoutX="316.0" layoutY="122.0" prefHeight="72.0" prefWidth="239.0" />
+      <Label layoutX="27.0" layoutY="129.0" prefHeight="58.0" prefWidth="239.0" text="Register Id :" />
+      <Label fx:id="lblTotal" layoutX="724.0" layoutY="605.0" prefHeight="72.0" prefWidth="239.0" />
+   </children>
+</AnchorPane>

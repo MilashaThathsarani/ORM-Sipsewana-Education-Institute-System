@@ -31,7 +31,7 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Label fx:id="txtDate" alignment="CENTER" layoutX="878.0" layoutY="27.0" prefHeight="52.0" prefWidth="200.0" />
+            <Label fx:id="txtDate" alignment="CENTER" layoutX="878.0" layoutY="29.0" prefHeight="52.0" prefWidth="200.0" />
             <Label layoutX="1121.0" layoutY="37.0" text="Time :">
                <font>
                   <Font name="System Bold" size="25.0" />
