@@ -16,31 +16,31 @@
    <children>
       <AnchorPane prefHeight="110.0" prefWidth="1600.0" style="-fx-background-color: #ff7675;">
          <children>
-            <Label layoutX="133.0" layoutY="26.0" text="Sipsewana Institute___. " textFill="#860a0a">
+            <Label layoutX="118.0" layoutY="26.0" text="Sipsewana Institute___. " textFill="#860a0a">
                <font>
                   <Font name="Berlin Sans FB" size="52.0" />
                </font>
             </Label>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="26.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/4.jpg" />
                </image>
             </ImageView>
-            <Label layoutX="786.0" layoutY="32.0" text="Date :" textFill="#860a0a">
+            <Label layoutX="786.0" layoutY="33.0" text="Date :" textFill="#860a0a">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Label layoutX="1128.0" layoutY="36.0" text="Time :" textFill="#860a0a">
+            <Label layoutX="1128.0" layoutY="32.0" text="Time :" textFill="#860a0a">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Label fx:id="txtDate" alignment="CENTER" layoutX="869.0" layoutY="32.0" prefHeight="52.0" prefWidth="219.0">
+            <Label fx:id="txtDate" alignment="CENTER" layoutX="869.0" layoutY="29.0" prefHeight="52.0" prefWidth="219.0">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font></Label>
-            <Label fx:id="txtTime" alignment="CENTER" layoutX="1215.0" layoutY="32.0" prefHeight="52.0" prefWidth="219.0">
+            <Label fx:id="txtTime" alignment="CENTER" layoutX="1215.0" layoutY="29.0" prefHeight="52.0" prefWidth="219.0">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font></Label>
@@ -49,15 +49,15 @@
                   <Font name="System Bold" size="30.0" />
                </font></JFXButton>
          </children></AnchorPane>
-      <JFXButton fx:id="btnAdd" buttonType="RAISED" layoutX="920.0" layoutY="421.0" onAction="#addOnAction" prefHeight="58.0" prefWidth="184.0" style="-fx-background-color: #16a085;" text="Add">
+      <JFXButton fx:id="btnAdd" buttonType="RAISED" layoutX="920.0" layoutY="414.0" onAction="#addOnAction" prefHeight="65.0" prefWidth="184.0" style="-fx-background-color: #16a085;" text="        Add">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></JFXButton>
-      <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="1146.0" layoutY="421.0" onAction="#updateOnAction" prefHeight="58.0" prefWidth="184.0" style="-fx-background-color: #2980b9;" text="update">
+      <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="1143.0" layoutY="414.0" onAction="#updateOnAction" prefHeight="65.0" prefWidth="184.0" style="-fx-background-color: #2980b9;" text="          Update">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></JFXButton>
-      <JFXButton fx:id="btnDelete" layoutX="1369.0" layoutY="421.0" onAction="#deleteOnAction" prefHeight="58.0" prefWidth="184.0" style="-fx-background-color: #e74c3c;" text="Delete">
+      <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="1371.0" layoutY="414.0" onAction="#deleteOnAction" prefHeight="65.0" prefWidth="184.0" style="-fx-background-color: #e74c3c;" text="         Delete">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></JFXButton>
@@ -78,8 +78,11 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtId" focusColor="#752003" layoutX="170.0" layoutY="128.0" onAction="#idOnAction" prefHeight="52.0" prefWidth="219.0" />
-      <JFXTextField fx:id="txtSearch" focusColor="#752003" labelFloat="true" layoutX="1197.0" layoutY="128.0" prefHeight="52.0" prefWidth="266.0" promptText="Search">
+      <JFXTextField fx:id="txtId" alignment="CENTER" focusColor="#752003" labelFloat="true" layoutX="170.0" layoutY="128.0" onAction="#idOnAction" prefHeight="52.0" prefWidth="219.0">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtSearch" focusColor="#752003" labelFloat="true" layoutX="1211.0" layoutY="128.0" prefHeight="52.0" prefWidth="266.0" promptText="Search">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -111,5 +114,25 @@
       </JFXTextField>
       <JFXDatePicker fx:id="dpBirthday" defaultColor="#752003" layoutX="42.0" layoutY="316.0" onAction="#birthDayOnAction" prefHeight="52.0" prefWidth="324.0" promptText="BirthDay" />
       <JFXComboBox fx:id="cmbGender" focusColor="#752003" labelFloat="true" layoutX="853.0" layoutY="316.0" onAction="#genderOnAction" prefHeight="52.0" prefWidth="258.0" promptText="Gender" />
+      <ImageView fitHeight="50.0" fitWidth="40.0" layoutX="932.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/add-user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="40.0" layoutX="1157.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/browser.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="40.0" layoutX="1384.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/trash.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="40.0" layoutX="1503.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/icons8-search-30.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

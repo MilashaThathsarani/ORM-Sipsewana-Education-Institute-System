@@ -4,6 +4,7 @@ import dao.SuperDAO;
 import dao.custom.ProgramDAO;
 import dto.ProgramDTO;
 import entity.Program;
+import entity.Registration;
 import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -86,7 +87,30 @@ public class ProgramDAOImpl implements ProgramDAO {
     }
 
     @Override
-    public ArrayList<ProgramDTO> getAllProgramIds() throws SQLException, ClassNotFoundException {
-        return null;
+    public String getProgramIds() throws SQLException, ClassNotFoundException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        String hql = "FROM Program p ORDER BY p.programId desc ";
+        Query query = session.createQuery(hql);
+        List resultList = query.getResultList();
+        transaction.commit();
+        session.close();
+        if (resultList.size() > 0){
+            int tempId = Integer.
+                    parseInt(((Program) resultList.get(0)).getProgramId().split("-")[1]);
+            tempId = tempId + 1;
+            if (tempId <= 9) {
+                return "P-00" + tempId;
+            } else if (tempId <= 99) {
+                return "P-0" + tempId;
+            } else if (tempId <= 999) {
+                return "P-0" + tempId;
+            } else {
+                return "P-" + tempId;
+            }
+        }else {
+            return "P-001";
+        }
     }
 }

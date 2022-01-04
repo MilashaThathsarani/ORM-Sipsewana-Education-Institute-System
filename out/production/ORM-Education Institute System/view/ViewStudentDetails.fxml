@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="viewContext" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewStudentDetailsController">
    <children>
       <AnchorPane prefHeight="100.0" prefWidth="1200.0" style="-fx-background-color: #ff7675;">
@@ -19,12 +18,12 @@
                   <Font name="System Bold" size="40.0" />
                </font>
             </JFXButton>
-            <Label layoutX="131.0" layoutY="21.0" text="Student Details" textFill="#860a0a">
+            <Label layoutX="147.0" layoutY="21.0" text="Student Details" textFill="#860a0a">
                <font>
                   <Font name="Berlin Sans FB" size="52.0" />
                </font>
             </Label>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="22.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="25.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/4.jpg" />
                </image>

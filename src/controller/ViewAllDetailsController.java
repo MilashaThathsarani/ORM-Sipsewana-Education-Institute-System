@@ -1,12 +1,15 @@
 package controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import view.tm.RegisterTM;
 
@@ -21,6 +24,8 @@ public class ViewAllDetailsController {
     public TableColumn colAddress;
     public TableColumn colAge;
     public TableColumn colPhoneNumber;
+    public JFXButton btnBack;
+    public AnchorPane registerContext;
 
     public void initialize(){
         try {
@@ -44,7 +49,7 @@ public class ViewAllDetailsController {
     }
 
     private void loadAllData() throws SQLException, ClassNotFoundException {
-        ObservableList<RegisterTM> tmList = FXCollections.observableArrayList();
+       /* ObservableList<RegisterTM> tmList = FXCollections.observableArrayList();
         QueryDAO queryDAO = new QueryDAOImpl();
         for (RegisterTM temp:queryDAO.getAllRegisters()
         ) {
@@ -58,7 +63,7 @@ public class ViewAllDetailsController {
                     ));
 
         }
-        tblRegisterList.setItems(tmList);
+        tblRegisterList.setItems(tmList);*/
 
     }
 
@@ -73,4 +78,9 @@ public class ViewAllDetailsController {
         stage.centerOnScreen();
     }
 
+    public void backOnAction(ActionEvent actionEvent) throws IOException {
+        Stage window = (Stage) registerContext.getScene().getWindow();
+        window.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/DashboardForm.fxml"))));
+        window.centerOnScreen();
+    }
 }

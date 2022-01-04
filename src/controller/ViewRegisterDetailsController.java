@@ -2,8 +2,10 @@ package controller;
 
 import bo.BoFactory;
 import bo.custom.RegisterDetailBO;
+import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -21,6 +23,7 @@ public class ViewRegisterDetailsController {
     public TableColumn colFee;
     public Label lblRegisterId;
     public Label lblTotal;
+    public JFXButton btnBack;
 
     public void loadAllData(String registerId) throws SQLException, ClassNotFoundException {
         lblRegisterId.setText(String.valueOf(registerId));
@@ -36,5 +39,8 @@ public class ViewRegisterDetailsController {
         }
         tblList.setItems(tmList);
         lblTotal.setText("Rs.  " + (total));
+    }
+
+    public void backOnAction(ActionEvent actionEvent) {
     }
 }

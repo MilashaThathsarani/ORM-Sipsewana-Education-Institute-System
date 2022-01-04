@@ -10,6 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface StudentDAO extends SuperDAO<Student,String> {
-    public List<StudentDTO> getAllStudentIds() throws SQLException,ClassNotFoundException;
+    public String getStudentIds() throws SQLException,ClassNotFoundException;
 
 }

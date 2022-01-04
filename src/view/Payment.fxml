@@ -26,22 +26,31 @@
                   <Font name="Berlin Sans FB" size="52.0" />
                </font>
             </Label>
-            <Label layoutX="809.0" layoutY="35.0" text="Date :">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-            </Label>
-            <Label fx:id="txtDate" alignment="CENTER" layoutX="878.0" layoutY="29.0" prefHeight="52.0" prefWidth="200.0" />
-            <Label layoutX="1121.0" layoutY="37.0" text="Time :">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-            </Label>
-            <Label fx:id="txtTime" alignment="CENTER" layoutX="1193.0" layoutY="27.0" prefHeight="52.0" prefWidth="200.0" />
-            <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="1482.0" layoutY="22.0" onAction="#backOnAction" prefHeight="65.0" prefWidth="94.0" text="--&gt;">
+            <Label layoutX="790.0" layoutY="32.0" text="Date :" textFill="#860a0a">
                <font>
                   <Font name="System Bold" size="30.0" />
-               </font></JFXButton>
+               </font>
+            </Label>
+            <Label layoutX="1127.0" layoutY="33.0" text="Time :" textFill="#860a0a">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="1481.0" layoutY="22.0" onAction="#backOnAction" prefHeight="45.0" prefWidth="87.0" style="-fx-background-color: #d1d8e0; -fx-background-radius: 20;" text="--&gt;">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </JFXButton>
+            <Label fx:id="txtTime" alignment="CENTER" layoutX="1214.0" layoutY="29.0" prefHeight="52.0" prefWidth="219.0">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="txtDate" alignment="CENTER" layoutX="873.0" layoutY="30.0" prefHeight="52.0" prefWidth="219.0">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
       <TableView fx:id="tblList" layoutX="27.0" layoutY="671.0" prefHeight="312.0" prefWidth="1107.0" stylesheets="@styles/StudentForm.css">
         <columns>
@@ -72,6 +81,16 @@
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></Label>
+            <ImageView fitHeight="50.0" fitWidth="40.0" layoutX="78.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/add.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="40.0" layoutX="78.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/check-mark.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <Label layoutX="21.0" layoutY="135.0" text="REGISTER NO : -">

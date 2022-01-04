@@ -19,6 +19,11 @@ public class ProgramBOImpl implements ProgramBO {
 
 
     @Override
+    public String getCustomerIds() throws SQLException, ClassNotFoundException {
+        return programDAO.getProgramIds();
+    }
+
+    @Override
     public ProgramDTO searchProgram(String programId) throws SQLException, ClassNotFoundException {
         Program program = programDAO.search(programId);
         return new ProgramDTO(program.getProgramId(),

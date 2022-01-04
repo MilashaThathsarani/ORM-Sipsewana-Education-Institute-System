@@ -2,6 +2,7 @@ package dao.custom.impl;
 
 import dao.custom.StudentDAO;
 import dto.StudentDTO;
+import entity.Registration;
 import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -84,8 +85,31 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public ArrayList<StudentDTO> getAllStudentIds() throws SQLException, ClassNotFoundException {
-        return null;
+    public String getStudentIds() throws SQLException, ClassNotFoundException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        String hql = "FROM Student s ORDER BY s.studentId desc ";
+        Query query = session.createQuery(hql);
+        List resultList = query.getResultList();
+        transaction.commit();
+        session.close();
+        if (resultList.size() > 0){
+            int tempId = Integer.
+                    parseInt(((Student) resultList.get(0)).getStudentId().split("-")[1]);
+            tempId = tempId + 1;
+            if (tempId <= 9) {
+                return "S-00" + tempId;
+            } else if (tempId <= 99) {
+                return "S-0" + tempId;
+            } else if (tempId <= 999) {
+                return "S-0" + tempId;
+            } else {
+                return "S-" + tempId;
+            }
+        }else {
+            return "S-001";
+        }
     }
 
     /*@Override

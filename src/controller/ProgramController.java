@@ -68,6 +68,7 @@ public class ProgramController {
         loadDateAndTime();
 
         setItemsToTable(programBO.getAll());
+        //setProgramId();
     }
 
     private void loadDateAndTime() {

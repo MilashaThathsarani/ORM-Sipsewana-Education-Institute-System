@@ -16,12 +16,16 @@ import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import view.tm.CartTM;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
@@ -268,7 +272,10 @@ public class PaymentController {
         tblList.getItems().clear();
     }
 
-    public void backOnAction(ActionEvent actionEvent) {
+    public void backOnAction(ActionEvent actionEvent) throws IOException {
+        Stage window = (Stage) paymentContext.getScene().getWindow();
+        window.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/DashboardForm.fxml"))));
+        window.centerOnScreen();
     }
 
 }

@@ -16,9 +16,8 @@ public class StudentBOImpl implements StudentBO {
     private final StudentDAO studentDAO = (StudentDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
 
     @Override
-    public ArrayList<StudentDTO> getStudentIds() throws SQLException, ClassNotFoundException {
-        return null;
-
+    public String getStudentIds() throws SQLException, ClassNotFoundException {
+        return studentDAO.getStudentIds();
     }
 
     @Override

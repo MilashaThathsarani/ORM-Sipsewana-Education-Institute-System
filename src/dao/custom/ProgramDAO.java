@@ -9,5 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface ProgramDAO extends SuperDAO<Program,String> {
-    public ArrayList<ProgramDTO> getAllProgramIds() throws SQLException,ClassNotFoundException;
+    //public ArrayList<ProgramDTO> getAllProgramIds() throws SQLException,ClassNotFoundException;
+    public String getProgramIds() throws SQLException,ClassNotFoundException;
 }

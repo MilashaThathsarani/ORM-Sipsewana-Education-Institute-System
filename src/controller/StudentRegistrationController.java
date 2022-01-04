@@ -92,10 +92,9 @@ public class StudentRegistrationController {
 
     }
 
-    private void setStudentId() {
-        //txtId.setText(new );
-
-    }
+    private void setStudentId() throws SQLException, ClassNotFoundException {
+            txtId.setText(studentBO.getStudentIds());
+        }
 
     private void loadDateAndTime() {
         Date date = new Date();

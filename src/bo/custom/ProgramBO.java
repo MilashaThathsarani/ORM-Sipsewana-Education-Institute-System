@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface ProgramBO extends SuperBO {
-    //String getCustomerIds() throws SQLException, ClassNotFoundException;
+    String getCustomerIds() throws SQLException, ClassNotFoundException;
 
     ProgramDTO searchProgram(String programId) throws SQLException, ClassNotFoundException;
 

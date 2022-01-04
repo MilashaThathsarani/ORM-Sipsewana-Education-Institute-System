@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -15,7 +16,7 @@
             <Image url="@assets/graduación.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="336.0" layoutY="52.0" text="Sipsewana Institute___. " textFill="#860a0a">
+      <Label layoutX="206.0" layoutY="60.0" text="Sipsewana Institute___... " textFill="#860a0a">
          <font>
             <Font name="Berlin Sans FB" size="52.0" />
          </font>
@@ -27,9 +28,9 @@
                   <Image url="@assets/IconBros.png" />
                </image>
             </ImageView>
-            <TextField fx:id="txtUserName" layoutX="25.0" layoutY="183.0" onAction="#userNameOnAction" prefHeight="43.0" prefWidth="344.0" promptText="User Name" style="-fx-background-radius: 10;" />
-            <TextField fx:id="txtPassword" layoutX="25.0" layoutY="256.0" prefHeight="43.0" prefWidth="344.0" promptText="Password" style="-fx-background-radius: 10;" />
-            <JFXButton buttonType="RAISED" layoutX="156.0" layoutY="376.0" onAction="#LogInOnAction" text="Login" textFill="#860a0a">
+            <TextField fx:id="txtUserName" layoutX="25.0" layoutY="183.0" onAction="#userNameOnAction" prefHeight="50.0" prefWidth="344.0" promptText="User Name" style="-fx-background-radius: 10;" />
+            <TextField fx:id="txtPassword" layoutX="25.0" layoutY="256.0" prefHeight="50.0" prefWidth="344.0" promptText="Password" style="-fx-background-radius: 10;" />
+            <JFXButton buttonType="RAISED" layoutX="71.0" layoutY="370.0" onAction="#LogInOnAction" prefHeight="50.0" prefWidth="252.0" style="-fx-background-color: #ff7675; -fx-background-radius: 20;" text="Login" textFill="#860a0a">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -40,11 +41,15 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <Label layoutX="36.0" layoutY="27.0" text="Welcome To...">
+      <Label layoutX="50.0" layoutY="23.0" text="Welcome To...">
          <font>
             <Font name="Broadway" size="30.0" />
          </font>
       </Label>
       <Label layoutX="263.0" layoutY="152.0" />
+      <Separator prefHeight="5.0" prefWidth="918.0" style="-fx-background-color: #860a0a;" />
+      <Separator layoutY="619.0" prefHeight="5.0" prefWidth="918.0" style="-fx-background-color: #860a0a;" />
+      <Separator layoutX="-3.0" orientation="VERTICAL" prefHeight="624.0" prefWidth="6.0" style="-fx-background-color: #860a0a;" />
+      <Separator layoutX="915.0" orientation="VERTICAL" prefHeight="624.0" prefWidth="6.0" style="-fx-background-color: #860a0a;" />
    </children>
 </AnchorPane>

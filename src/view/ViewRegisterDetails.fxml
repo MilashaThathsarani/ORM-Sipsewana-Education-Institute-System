@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -7,7 +8,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewRegisterDetailsController">
    <children>
@@ -23,6 +23,11 @@
                   <Font name="Berlin Sans FB" size="52.0" />
                </font>
             </Label>
+            <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="887.0" layoutY="7.0" onAction="#backOnAction" prefHeight="86.0" prefWidth="115.0" style="-fx-background-radius: 20;" text="--&gt;">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
       <TableView fx:id="tblList" layoutX="42.0" layoutY="220.0" prefHeight="376.0" prefWidth="921.0">
