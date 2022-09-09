@@ -30,6 +30,54 @@ public class RegisterBOImpl implements RegisterBO {
     private final RegisterDetailDAO registerDetailDAO = (RegisterDetailDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.REGISTERDETAIL);
 
     @Override
+    public RegistrationDTO getRegister(String registerId) throws SQLException, ClassNotFoundException {
+        List<RegistrationDTO> all = getAll();
+        for (RegistrationDTO p:all){
+            if (p.getRegisterId().equals(registerId)){
+                return new RegistrationDTO(p.getRegisterId(),
+                        p.getStudentId(),
+                        p.getProgramId(),
+                        p.getRegisterDate(),
+                        p.getTime(),
+                        p.getPayment(),
+                        p.getRegisterDetail());
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public List<RegistrationDTO> getAll() throws SQLException, ClassNotFoundException {
+        List<Registration> all = registerDAO.getAll();
+        ArrayList<RegistrationDTO> dtos = new ArrayList<>();
+
+        for (Registration registration : all){
+            dtos.add(new RegistrationDTO(registration.getRegisterId(),
+                    registration.getStudent().getStudentId(),
+                    getPid(registration.getStudent().getStudentId()),
+                    registration.getRegisterDate(),
+                    registration.getTime(),
+                    registration.getPayment()));
+        }
+        return null;
+    }
+
+    @Override
+    public List<Registration> getAllForAll() throws SQLException, ClassNotFoundException {
+        return   registerDAO.getAll();
+    }
+
+    public String getPid(String studentId) throws SQLException, ClassNotFoundException {
+        List<RegisterDetail> all = registerDetailDAO.getAll();
+        for (RegisterDetail registerDetail : all){
+            if (studentId.equals(registerDetail.getSid().getStudentId())){
+                return registerDetail.getProgramId().getProgramId();
+            }
+        }
+        return null;
+    }
+
+    @Override
     public boolean purchaseRegister(RegistrationDTO dto) throws SQLException, ClassNotFoundException {
         try {
         Session session = FactoryConfiguration.getInstance().getSession();

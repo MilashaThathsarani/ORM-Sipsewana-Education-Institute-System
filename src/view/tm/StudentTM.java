@@ -3,9 +3,7 @@ package view.tm;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
 public class StudentTM {
-        @Id
         private String studentId;
         private String studentName;
         private String address;

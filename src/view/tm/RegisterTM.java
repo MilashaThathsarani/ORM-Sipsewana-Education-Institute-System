@@ -5,19 +5,17 @@ public class RegisterTM {
     private String studentId;
     private String studentName;
     private String address;
-    private int age;
-    private String phoneNumber;
+    private String payment;
 
-    public RegisterTM() {
-    }
-
-    public RegisterTM(String registerId, String studentId, String studentName, String address, int age, String phoneNumber) {
+    public RegisterTM(String registerId, String studentId, String studentName, String address, String payment) {
         this.setRegisterId(registerId);
         this.setStudentId(studentId);
         this.setStudentName(studentName);
         this.setAddress(address);
-        this.setAge(age);
-        this.setPhoneNumber(phoneNumber);
+        this.setPayment(payment);
+    }
+
+    public RegisterTM() {
     }
 
     public String getRegisterId() {
@@ -52,19 +50,11 @@ public class RegisterTM {
         this.address = address;
     }
 
-    public int getAge() {
-        return age;
+    public String getPayment() {
+        return payment;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPayment(String payment) {
+        this.payment = payment;
     }
 }

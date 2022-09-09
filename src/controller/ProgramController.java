@@ -57,7 +57,7 @@ public class ProgramController {
 
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();
     Pattern namePattern = Pattern.compile("^[A-z ]{2,}$");
-    Pattern durationPattern = Pattern.compile("[A-z ]{3,30}([0-9]{1,2})?$");
+    Pattern durationPattern = Pattern.compile("^[0-9 A-z]{2,}$");
     Pattern feePattern = Pattern.compile("[1-9][0-9]*([.][0-9]{2})?$");
 
     public void initialize() throws SQLException, ClassNotFoundException {
@@ -80,9 +80,16 @@ public class ProgramController {
         //setProgramId();
     }
 
+    private void clearText() {
+        txtId.setText("");
+        txtProgramName.setText("");
+        txtDuration.setText("");
+        txtFee.setText("");
+    }
+
     private void storeValidation() {
         map.put(txtProgramName, namePattern);
-        map.put(txtDuration,durationPattern);
+        map.put(txtDuration, durationPattern);
         map.put(txtFee,feePattern);
     }
 
@@ -114,6 +121,7 @@ public class ProgramController {
 
         if (programBO.add(programDTO)) {
             new Alert(Alert.AlertType.CONFIRMATION, "Saved..").show();
+            clearText();
             setItemsToTable(programBO.getAll());
         } else {
             new Alert(Alert.AlertType.WARNING, "Try Again..").show();

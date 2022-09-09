@@ -17,10 +17,19 @@ public class ProgramBOImpl implements ProgramBO {
 
     private final ProgramDAO programDAO = (ProgramDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.PROGRAM);
 
-
     @Override
-    public String getCustomerIds() throws SQLException, ClassNotFoundException {
-        return programDAO.getProgramIds();
+    public ProgramTM getProgram(String programId) throws SQLException, ClassNotFoundException {
+        ArrayList<ProgramTM> all = getAll();
+        for (ProgramTM p : all) {
+            if (p.getProgramId().equals(programId)){
+                return new ProgramTM(
+            p.getProgramId(),
+            p.getProgramName(),
+            p.getDuration(),
+            p.getFee());
+            }
+        }
+        return null;
     }
 
     @Override

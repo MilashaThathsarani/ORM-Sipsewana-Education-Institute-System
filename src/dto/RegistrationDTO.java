@@ -24,6 +24,9 @@ public class RegistrationDTO {
     public RegistrationDTO() {
     }
 
+    public RegistrationDTO(String registerId, String studentId, String pid, String registerDate, String time, String payment) {
+    }
+
     public String getRegisterId() {
         return registerId;
     }

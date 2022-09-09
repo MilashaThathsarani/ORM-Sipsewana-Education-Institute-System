@@ -30,14 +30,13 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <TableView fx:id="tblRegisterList" layoutX="28.0" layoutY="139.0" prefHeight="520.0" prefWidth="1145.0">
+      <TableView fx:id="tblRegisterList" layoutX="28.0" layoutY="139.0" prefHeight="520.0" prefWidth="1145.0" stylesheets="@styles/StudentForm.css">
         <columns>
           <TableColumn fx:id="colRegisterId" prefWidth="110.0" text="Register Id" />
-          <TableColumn fx:id="colStudentId" prefWidth="110.0" text="Student Id" />
-            <TableColumn fx:id="colStudentName" prefWidth="284.0" text="Student Name" />
-            <TableColumn fx:id="colAddress" prefWidth="355.0" text="Address" />
-            <TableColumn fx:id="colAge" prefWidth="115.0" text="Age" />
-            <TableColumn fx:id="colPhoneNumber" prefWidth="170.0" text="Phone Number" />
+          <TableColumn fx:id="colStudentId" prefWidth="129.0" text="Student Id" />
+            <TableColumn fx:id="colStudentName" prefWidth="303.0" text="Student Name" />
+            <TableColumn fx:id="colAddress" prefWidth="391.0" text="Address" />
+            <TableColumn fx:id="colPayment" prefWidth="211.0" text="Payment" />
         </columns>
       </TableView>
    </children>

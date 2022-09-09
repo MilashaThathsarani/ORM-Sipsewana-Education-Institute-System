@@ -102,6 +102,14 @@ public class StudentRegistrationController {
 
     }
 
+    private void clearText() {
+        txtFullName.setText("");
+        txtAddress.setText("");
+        txtAge.setText("");
+        txtPhoneNumber.setText("");
+        txtEducation.setText("");
+    }
+
     private void storeValidation() {
         map.put(txtFullName, namePattern);
         map.put(txtAddress, addressPattern);
@@ -150,7 +158,10 @@ public class StudentRegistrationController {
                 studentBO.addStudent(studentDTO);
 
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved..").show();
+                setStudentId();
+                clearText();
                 setItemsToTable(studentBO.getAll());
+
 
             }
 

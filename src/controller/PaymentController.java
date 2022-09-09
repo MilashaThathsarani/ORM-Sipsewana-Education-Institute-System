@@ -91,6 +91,14 @@ public class PaymentController {
         colProgramName.setCellValueFactory(new PropertyValueFactory<>("programName"));
         colPayment.setCellValueFactory(new PropertyValueFactory<>("total"));
 
+
+        colRegisterId.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        colProgramName.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        colProgramId.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        colPayment.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        colStudentId.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        colStudentName.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+
         try {
             loadProgramIds();
         } catch (SQLException throwables) {
@@ -129,6 +137,23 @@ public class PaymentController {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void clearText() {
+        txtStudentName.setText("");
+        txtFee.setText("");
+        txtEducation.setText("");
+        txtProgramName.setText("");
+        txtGender.setText("");
+        txtAge.setText("");
+        txtPhoneNumber.setText("");
+        txtDuration.setText("");
+        txtAddress.setText("");
+        txtBirthday.setText("");
+
+        for ( int i = 0; i<tblList.getItems().size(); i++) {
+            tblList.getItems().clear();
         }
     }
 
@@ -264,6 +289,7 @@ public class PaymentController {
         );
         if(registerBO.purchaseRegister(registrationDTO)){
         new Alert(Alert.AlertType.CONFIRMATION,"Registered Successfully").show();
+        clearText();
         }else {
             new Alert(Alert.AlertType.WARNING,"Try again").show();
         }

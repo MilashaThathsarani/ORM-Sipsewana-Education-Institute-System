@@ -5,11 +5,18 @@ import dto.ProgramDTO;
 import dto.RegistrationDTO;
 import dto.StudentDTO;
 import entity.RegisterDetail;
+import entity.Registration;
+import view.tm.StudentTM;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface RegisterBO extends SuperBO {
+    RegistrationDTO getRegister(String registerId) throws SQLException, ClassNotFoundException;
+    List<RegistrationDTO> getAll() throws SQLException, ClassNotFoundException;
+    List<Registration> getAllForAll() throws SQLException, ClassNotFoundException;
+
     boolean purchaseRegister(RegistrationDTO dto) throws SQLException, ClassNotFoundException;
 
     String getRegisterIds()throws SQLException, ClassNotFoundException;

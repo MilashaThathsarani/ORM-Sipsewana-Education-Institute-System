@@ -8,7 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface StudentBO extends SuperBO {
-    //public ArrayList<StudentDTO> getStudentIds() throws SQLException, ClassNotFoundException;
+    public StudentTM getStudent(String studentId) throws SQLException, ClassNotFoundException;
+
     String getStudentIds() throws SQLException, ClassNotFoundException;
 
     StudentDTO searchStudent(String studentId) throws SQLException, ClassNotFoundException;

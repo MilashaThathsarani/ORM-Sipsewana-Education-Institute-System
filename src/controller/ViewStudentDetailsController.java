@@ -44,6 +44,15 @@ public class ViewStudentDetailsController {
         colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
         colPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
         colEducation.setCellValueFactory(new PropertyValueFactory<>("education"));
+
+        colStudentId.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        colStudentName.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        colAddress.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        colBirthDay.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        colAge.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        colGender.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        colPhoneNumber.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
+        colEducation.setStyle("-fx-border-color: #860a0a;-fx-table-cell-border-color:#860a0a;");
     }
 
     private void setItemsToTable(ArrayList<StudentTM> student) {

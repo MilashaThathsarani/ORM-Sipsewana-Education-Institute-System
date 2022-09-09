@@ -30,7 +30,7 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <TableView fx:id="tblProgram" layoutX="25.0" layoutY="140.0" prefHeight="530.0" prefWidth="1150.0">
+      <TableView fx:id="tblProgram" layoutX="25.0" layoutY="140.0" prefHeight="530.0" prefWidth="1150.0" stylesheets="@styles/StudentForm.css">
         <columns>
           <TableColumn fx:id="colProgramId" prefWidth="146.0" text="Program Id" />
           <TableColumn fx:id="colProgramName" prefWidth="484.0" text="Program Name" />

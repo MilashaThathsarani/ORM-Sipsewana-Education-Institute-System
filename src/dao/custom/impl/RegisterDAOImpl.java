@@ -56,7 +56,18 @@ public class RegisterDAOImpl implements RegisterDAO {
 
     @Override
     public ArrayList<Registration> getAll() throws SQLException, ClassNotFoundException {
-        return null;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+
+
+        Query programs = session.createQuery("from Registration ");
+        List<Registration> list = programs.list();
+
+        transaction.commit();
+
+        session.close();
+        return (ArrayList<Registration>) list;
     }
 
     @Override
